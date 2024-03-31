@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Auth\TwoFaController;
 use App\Http\Controllers\WelcomeController;
 use App\Livewire\Admin\AuditTrails;
 use App\Livewire\Admin\Dashboard;
@@ -40,5 +39,3 @@ Route::prefix(config('admintw.prefix'))->middleware(['auth', 'verified', 'active
         Route::get('{user}', ShowUser::class)->name('admin.users.show');
     });
 });
-
-require __DIR__.'/auth.php';

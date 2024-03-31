@@ -5,6 +5,7 @@ namespace Tests;
 use AllowDynamicProperties;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Permission;
@@ -12,6 +13,8 @@ use Spatie\Permission\Models\Permission;
 #[AllowDynamicProperties]
 abstract class TestCase extends BaseTestCase
 {
+    use LazilyRefreshDatabase;
+
     protected function setUp(): void
     {
         parent::setUp();

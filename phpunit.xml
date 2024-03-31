@@ -9,11 +9,19 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
+        <testsuite name="Modules">
+          <directory suffix="Test.php">./Modules/*/Tests/Feature</directory>
+          <directory suffix="Test.php">./Modules/*/Tests/Unit</directory>
+        </testsuite>
     </testsuites>
     <source>
         <include>
             <directory suffix=".php">./app</directory>
+            <directory suffix=".php">./Modules/*</directory>
         </include>
+        <exclude>
+            <directory suffix=".php">./Modules/*/tests</directory>
+        </exclude>
     </source>
     <php>
         <env name="APP_ENV" value="testing"/>
