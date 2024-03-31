@@ -3,6 +3,7 @@
 use App\Models\User;
 use Illuminate\Validation\Rules\Password;
 use Modules\Auth\Http\Requests\RegisterRequest;
+
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertTrue;
 

@@ -16,14 +16,14 @@ test('confirm password screen can be rendered', function () {
 
 test('password can be confirmed', function () {
     post(route('password.confirm'), [
-            'password' => 'password',
-        ])
+        'password' => 'password',
+    ])
         ->assertRedirect()
         ->assertSessionHasNoErrors();
 });
 
 test('password is not confirmed with invalid password', function () {
     post(route('password.confirm'), [
-            'password' => 'wrong-password',
-        ])->assertSessionHasErrors();
+        'password' => 'wrong-password',
+    ])->assertSessionHasErrors();
 });
