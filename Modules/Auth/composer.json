@@ -1,0 +1,20 @@
+{
+    "name": "laravel-modules-com/auth",
+    "description": "",
+    "authors": [
+        {
+            "name": "David Carr",
+            "email": "dave@dcblog.dev"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Auth\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Auth\\Tests\\": "tests/"
+        }
+    }
+}
