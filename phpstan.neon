@@ -20,8 +20,6 @@ parameters:
     level: 8
 
     ignoreErrors:
-    #- '#Cannot access property \$[a-zA-Z0-9\\_]+ on App\\Models\\User\|null#'
-    #- '#Cannot call method [a-zA-Z0-9\\_]+\(\) on App\\Models\\User\|null#'
 
     checkGenericClassInNonGenericObjectType: false
     treatPhpDocTypesAsCertain: false
