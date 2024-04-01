@@ -10,6 +10,7 @@ use Illuminate\Support\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Modules\AuditTrails\Models\AuditTrail;
+
 use function abort_if_cannot;
 use function view;
 

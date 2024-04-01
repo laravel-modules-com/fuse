@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\Event;
 use Modules\Settings\Models\Setting;
+
 use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;

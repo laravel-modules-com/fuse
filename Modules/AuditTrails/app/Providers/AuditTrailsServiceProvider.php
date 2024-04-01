@@ -5,7 +5,7 @@ namespace Modules\AuditTrails\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use Modules\AuditTrails\App\Livewire\Admin\AuditTrails;
+use Modules\AuditTrails\App\Livewire\Admin\Logs;
 
 class AuditTrailsServiceProvider extends ServiceProvider
 {
@@ -25,7 +25,7 @@ class AuditTrailsServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'database/migrations'));
 
-       // Livewire::component('audit-trails::audit-trails', AuditTrails::class);
+        Livewire::component('audit-trails::logs', Logs::class);
     }
 
     /**

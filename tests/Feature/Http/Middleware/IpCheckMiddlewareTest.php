@@ -1,6 +1,7 @@
 <?php
 
 use Modules\Settings\Models\Setting;
+
 use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 

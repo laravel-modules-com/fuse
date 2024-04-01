@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Modules\Roles\Models\Role;
+
 use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;

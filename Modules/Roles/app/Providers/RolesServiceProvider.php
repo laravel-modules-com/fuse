@@ -81,7 +81,7 @@ class RolesServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom($sourcePath, $this->moduleNameLower);
 
-        $componentNamespace = str_replace('/', '\\', config('modules.namespace').'\\'.$this->moduleName.'\\'.ltrim(config('modules.paths.generator.component-class.path'), config('modules.paths.app_folder','')));
+        $componentNamespace = str_replace('/', '\\', config('modules.namespace').'\\'.$this->moduleName.'\\'.ltrim(config('modules.paths.generator.component-class.path'), config('modules.paths.app_folder', '')));
         Blade::componentNamespace($componentNamespace, $this->moduleNameLower);
     }
 }

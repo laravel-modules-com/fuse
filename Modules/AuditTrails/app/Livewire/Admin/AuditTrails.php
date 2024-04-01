@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\AuditTrails\App\Livewire\Admin;
+namespace Modules\AuditTrails\Livewire\Admin;
 
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
