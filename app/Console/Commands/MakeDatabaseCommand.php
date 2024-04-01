@@ -17,7 +17,6 @@ class MakeDatabaseCommand extends Command
         if (in_array(config('app.env'), ['local', 'staging'])) {
             if ($this->confirm('This will DELETE all data and re-migrate and seed. Do you wish to continue?')) {
                 $this->call('migrate:fresh');
-                $this->line('------');
                 $this->call('module:seed');
                 $this->call('db:seed');
                 $this->line('Completed!');
