@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Modules\Admin\Models\Notification;
+
 use function PHPUnit\Framework\assertInstanceOf;
 
 beforeEach(function () {

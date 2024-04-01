@@ -6,6 +6,7 @@ namespace Modules\Admin\Livewire\Admin;
 
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+
 use function view;
 
 class HelpMenu extends Component

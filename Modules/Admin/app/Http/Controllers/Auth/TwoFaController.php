@@ -11,8 +11,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
-use Modules\AuditTrails\Models\AuditTrail;
 use Modules\Admin\Http\Requests\Auth\TwoFaUpdateRequest;
+use Modules\AuditTrails\Models\AuditTrail;
 use RobThree\Auth\TwoFactorAuth;
 
 class TwoFaController extends Controller
