@@ -1,10 +1,10 @@
-## Modules Starter Kit
+## Fuse (Starter Kit)
 
-Laravel AdminTW is a Laravel Starter Kit | TALL admin theme.
+Fuse is a Laravel Starter Kit | TALL admin theme built with modules.
 
 <p><img src="https://laraveladmintw.com/images/docsv5/settings-light.png"></p>
 
-AdminTw is built on top of Laravel, Livewire, and Tailwind CSS.
+Fuse is built on top of Laravel, Livewire, and Tailwind CSS.
 
 Includes:
 - 2FA
@@ -29,10 +29,10 @@ Set database and emails settings inside `.env`
 2. Run `composer install`
 3. Run `npm install && npm run build`
 4. run `php artisan storage:link`
-4. Run `php artisan migrate --seed`
+4. Run `php artisan db:build`
 5. Run `php artisan serve`
 
-Supports both light and dark mode based on the users OS.
+Supports both light and dark modes based on the user's OS.
 
 Provided are blade and Laravel Livewire components for common layout / UI elements and a complete test suite (Pest PHP).
 
