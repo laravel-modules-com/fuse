@@ -3,11 +3,11 @@
         @php
             //cache the logo setting to reduce calling the database
             $loginLogo = Cache::rememberForever('loginLogo', function () {
-                return \App\Models\Setting::where('key', 'loginLogo')->value('value');
+                return \Modules\Settings\Models\Setting::where('key', 'loginLogo')->value('value');
             });
 
             $loginLogoDark = Cache::rememberForever('loginLogoDark', function () {
-                return \App\Models\Setting::where('key', 'loginLogoDark')->value('value');
+                return \Modules\Settings\Models\Setting::where('key', 'loginLogoDark')->value('value');
             });
         @endphp
 

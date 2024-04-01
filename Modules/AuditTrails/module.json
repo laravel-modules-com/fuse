@@ -1,0 +1,11 @@
+{
+    "name": "AuditTrails",
+    "alias": "audit-trails",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\AuditTrails\\Providers\\AuditTrailsServiceProvider"
+    ],
+    "files": []
+}

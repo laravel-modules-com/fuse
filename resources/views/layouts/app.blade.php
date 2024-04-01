@@ -40,7 +40,7 @@
                         <div class="flex">
                             <livewire:admin.notifications-menu />
                             <livewire:admin.help-menu />
-                            <livewire:admin.users.user-menu />
+                            <livewire:users::admin.user-menu />
                         </div>
                     </div>
                 @endauth

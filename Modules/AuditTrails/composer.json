@@ -1,0 +1,30 @@
+{
+    "name": "laravel-modules-com/audittrails",
+    "description": "",
+    "authors": [
+        {
+            "name": "David Carr",
+            "email": "dave@dcblog.dev"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\AuditTrails\\": "app/",
+            "Modules\\AuditTrails\\Database\\Factories\\": "database/factories/",
+            "Modules\\AuditTrails\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\AuditTrails\\Tests\\": "tests/"
+        }
+    }
+}

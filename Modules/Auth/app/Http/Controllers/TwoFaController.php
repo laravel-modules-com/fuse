@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Modules\Auth\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\AuditTrail;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
+use Modules\AuditTrails\Models\AuditTrail;
 use Modules\Auth\Http\Requests\TwoFaUpdateRequest;
 use RobThree\Auth\TwoFactorAuth;
 

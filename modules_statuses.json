@@ -1,3 +1,7 @@
 {
-    "Auth": true
+    "Auth": true,
+    "Users": true,
+    "Roles": true,
+    "Settings": true,
+    "AuditTrails": true
 }

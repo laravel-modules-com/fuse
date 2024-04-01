@@ -1,0 +1,30 @@
+{
+    "name": "laravel-modules-com/roles",
+    "description": "",
+    "authors": [
+        {
+            "name": "David Carr",
+            "email": "dave@dcblog.dev"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Roles\\": "app/",
+            "Modules\\Roles\\Database\\Factories\\": "database/factories/",
+            "Modules\\Roles\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Roles\\Tests\\": "tests/"
+        }
+    }
+}

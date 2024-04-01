@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\Setting;
-
+use Modules\Settings\Models\Setting;
 use function Pest\Laravel\get;
 
 test('settings are applied', function () {

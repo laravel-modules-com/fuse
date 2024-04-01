@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Auth\Http\Requests;
 
-use App\Models\AuditTrail;
-use App\Models\Setting;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Modules\AuditTrails\Models\AuditTrail;
+use Modules\Settings\Models\Setting;
 
 class LoginRequest extends FormRequest
 {

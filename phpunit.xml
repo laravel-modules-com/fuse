@@ -20,6 +20,8 @@
             <directory suffix=".php">./Modules/*</directory>
         </include>
         <exclude>
+            <directory suffix=".php">./Modules/*/database</directory>
+            <directory suffix=".php">./Modules/*/resources</directory>
             <directory suffix=".php">./Modules/*/tests</directory>
         </exclude>
     </source>

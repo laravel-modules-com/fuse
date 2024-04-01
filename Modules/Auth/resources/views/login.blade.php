@@ -7,8 +7,6 @@
 
             @include('errors.messages')
 
-            {{ __('cool') }}
-
             <x-form.input name="email" :label="__('Email')">{{ old('email') }}</x-form.input>
             <x-form.input name="password" :label="__('Password')" type="password" />
 

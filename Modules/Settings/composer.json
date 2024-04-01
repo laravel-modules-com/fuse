@@ -1,0 +1,30 @@
+{
+    "name": "laravel-modules-com/settings",
+    "description": "",
+    "authors": [
+        {
+            "name": "David Carr",
+            "email": "dave@dcblog.dev"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Settings\\": "app/",
+            "Modules\\Settings\\Database\\Factories\\": "database/factories/",
+            "Modules\\Settings\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Settings\\Tests\\": "tests/"
+        }
+    }
+}

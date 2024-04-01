@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Models\AuditTrail;
 use Illuminate\Support\Facades\Storage;
+use Modules\AuditTrails\Models\AuditTrail;
 
 if (! function_exists('can')) {
     function can(string $action): bool
