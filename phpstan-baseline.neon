@@ -1,0 +1,236 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Request\\:\\:session\\(\\)\\.$#"
+			count: 2
+			path: Modules/Admin/app/Http/Controllers/Auth/AuthenticatedSessionController.php
+
+		-
+			message: "#^Call to an undefined method Modules\\\\Admin\\\\Http\\\\Requests\\\\Auth\\\\LoginRequest\\:\\:session\\(\\)\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/AuthenticatedSessionController.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Request\\:\\:session\\(\\)\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/ConfirmablePasswordController.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Request\\:\\:user\\(\\)\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/ConfirmablePasswordController.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Request\\:\\:user\\(\\)\\.$#"
+			count: 2
+			path: Modules/Admin/app/Http/Controllers/Auth/EmailVerificationNotificationController.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Request\\:\\:user\\(\\)\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/EmailVerificationPromptController.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Request\\:\\:input\\(\\)\\.$#"
+			count: 2
+			path: Modules/Admin/app/Http/Controllers/Auth/JoinController.php
+
+		-
+			message: "#^Property App\\\\Models\\\\User\\:\\:\\$email_verified_at \\(Illuminate\\\\Support\\\\Carbon\\|null\\) does not accept string\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/JoinController.php
+
+		-
+			message: "#^Property App\\\\Models\\\\User\\:\\:\\$joined_at \\(Illuminate\\\\Support\\\\Carbon\\|null\\) does not accept string\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/JoinController.php
+
+		-
+			message: "#^Property App\\\\Models\\\\User\\:\\:\\$last_logged_in_at \\(Illuminate\\\\Support\\\\Carbon\\|null\\) does not accept string\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/JoinController.php
+
+		-
+			message: "#^Access to undefined constant Illuminate\\\\Support\\\\Facades\\\\Password\\:\\:PASSWORD_RESET\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/NewPasswordController.php
+
+		-
+			message: "#^Parameter \\#1 \\$user of class Illuminate\\\\Auth\\\\Events\\\\PasswordReset constructor expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User given\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/NewPasswordController.php
+
+		-
+			message: "#^Access to undefined constant Illuminate\\\\Support\\\\Facades\\\\Password\\:\\:RESET_LINK_SENT\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/PasswordResetLinkController.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Request\\:\\:only\\(\\)\\.$#"
+			count: 2
+			path: Modules/Admin/app/Http/Controllers/Auth/PasswordResetLinkController.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:assignRole\\(\\)\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/RegisteredUserController.php
+
+		-
+			message: "#^Parameter \\#1 \\$user of class Illuminate\\\\Auth\\\\Events\\\\Registered constructor expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User given\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Controllers/Auth/RegisteredUserController.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Request\\:\\:input\\(\\)\\.$#"
+			count: 3
+			path: Modules/Admin/app/Http/Controllers/Auth/TwoFaController.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Foundation\\\\Auth\\\\EmailVerificationRequest\\:\\:user\\(\\)\\.$#"
+			count: 2
+			path: Modules/Admin/app/Http/Controllers/Auth/VerifyEmailController.php
+
+		-
+			message: "#^Call to an undefined method Modules\\\\Admin\\\\Http\\\\Requests\\\\Auth\\\\LoginRequest\\:\\:boolean\\(\\)\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Requests/Auth/LoginRequest.php
+
+		-
+			message: "#^Call to an undefined method Modules\\\\Admin\\\\Http\\\\Requests\\\\Auth\\\\LoginRequest\\:\\:input\\(\\)\\.$#"
+			count: 3
+			path: Modules/Admin/app/Http/Requests/Auth/LoginRequest.php
+
+		-
+			message: "#^Call to an undefined method Modules\\\\Admin\\\\Http\\\\Requests\\\\Auth\\\\LoginRequest\\:\\:ip\\(\\)\\.$#"
+			count: 1
+			path: Modules/Admin/app/Http/Requests/Auth/LoginRequest.php
+
+		-
+			message: "#^Call to an undefined method Modules\\\\Admin\\\\Http\\\\Requests\\\\Auth\\\\LoginRequest\\:\\:user\\(\\)\\.$#"
+			count: 8
+			path: Modules/Admin/app/Http/Requests/Auth/LoginRequest.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Routing\\\\Route\\:\\:middleware\\(\\)\\.$#"
+			count: 2
+			path: Modules/Admin/routes/web.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Routing\\\\Route\\:\\:name\\(\\)\\.$#"
+			count: 16
+			path: Modules/Admin/routes/web.php
+
+		-
+			message: "#^Relation 'user' is not found in Modules\\\\AuditTrails\\\\Models\\\\AuditTrail model\\.$#"
+			count: 1
+			path: Modules/AuditTrails/app/Livewire/Admin/AuditTrails.php
+
+		-
+			message: "#^Class Modules\\\\AuditTrails\\\\App\\\\Livewire\\\\Admin\\\\Logs not found\\.$#"
+			count: 1
+			path: Modules/AuditTrails/app/Providers/AuditTrailsServiceProvider.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Routing\\\\Route\\:\\:name\\(\\)\\.$#"
+			count: 1
+			path: Modules/AuditTrails/routes/web.php
+
+		-
+			message: "#^Cannot access property \\$id on Modules\\\\Roles\\\\Models\\\\Role\\|null\\.$#"
+			count: 3
+			path: Modules/Roles/app/Livewire/Admin/Edit.php
+
+		-
+			message: "#^Cannot access property \\$label on Modules\\\\Roles\\\\Models\\\\Role\\|null\\.$#"
+			count: 1
+			path: Modules/Roles/app/Livewire/Admin/Edit.php
+
+		-
+			message: "#^Cannot access property \\$name on Modules\\\\Roles\\\\Models\\\\Role\\|null\\.$#"
+			count: 1
+			path: Modules/Roles/app/Livewire/Admin/Edit.php
+
+		-
+			message: "#^Cannot call method save\\(\\) on Modules\\\\Roles\\\\Models\\\\Role\\|null\\.$#"
+			count: 1
+			path: Modules/Roles/app/Livewire/Admin/Edit.php
+
+		-
+			message: "#^Cannot call method syncPermissions\\(\\) on Modules\\\\Roles\\\\Models\\\\Role\\|null\\.$#"
+			count: 1
+			path: Modules/Roles/app/Livewire/Admin/Edit.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Routing\\\\Route\\:\\:name\\(\\)\\.$#"
+			count: 2
+			path: Modules/Roles/routes/web.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Routing\\\\Route\\:\\:name\\(\\)\\.$#"
+			count: 1
+			path: Modules/Settings/routes/web.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:hasRole\\(\\)\\.$#"
+			count: 1
+			path: Modules/Users/app/Livewire/Admin/Edit/Roles.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:roles\\(\\)\\.$#"
+			count: 1
+			path: Modules/Users/app/Livewire/Admin/Edit/Roles.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:assignRole\\(\\)\\.$#"
+			count: 1
+			path: Modules/Users/app/Livewire/Admin/Invite.php
+
+		-
+			message: "#^Property App\\\\Models\\\\User\\:\\:\\$invited_at \\(Illuminate\\\\Support\\\\Carbon\\|null\\) does not accept string\\.$#"
+			count: 1
+			path: Modules/Users/app/Livewire/Admin/Users.php
+
+		-
+			message: "#^Relation 'roles' is not found in App\\\\Models\\\\User model\\.$#"
+			count: 1
+			path: Modules/Users/app/Livewire/Admin/Users.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Routing\\\\Route\\:\\:name\\(\\)\\.$#"
+			count: 3
+			path: Modules/Users/routes/web.php
+
+		-
+			message: "#^Cannot access property \\$is_active on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Http/Middleware/ActiveUser.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Request\\:\\:ip\\(\\)\\.$#"
+			count: 1
+			path: app/Http/Middleware/IpCheckMiddleware.php
+
+		-
+			message: "#^Cannot access property \\$is_office_login_only on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Http/Middleware/IpCheckMiddleware.php
+
+		-
+			message: "#^Cannot call method can\\(\\) on App\\\\Models\\\\User\\|null\\.$#"
+			count: 2
+			path: app/Http/helpers.php
+
+		-
+			message: "#^Cannot call method cannot\\(\\) on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Http/helpers.php
+
+		-
+			message: "#^Cannot call method hasRole\\(\\) on App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Http/helpers.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:hasRole\\(\\)\\.$#"
+			count: 1
+			path: app/Providers/AppServiceProvider.php

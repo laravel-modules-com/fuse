@@ -13,161 +13,9 @@
 
 namespace App\Models{
 /**
+ * 
  *
- *
- * @property string $id
- * @property string|null $user_id
- * @property string $title
- * @property string|null $link
- * @property string $reference_id
- * @property string $section
- * @property string $type
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Models\User|null $user
- * @method static \Modules\AuditTrails\database\factories\AuditTrailsFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail whereLink($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail whereReferenceId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail whereSection($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\AuditTrails\Models\AuditTrail withoutTrashed()
- */
-	class AuditTrail extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- *
- *
- * @property string $id
- * @property string $title
- * @property string $assigned_to_user_id
- * @property string $assigned_from_user_id
- * @property string|null $link
- * @property int|null $viewed
- * @property string|null $viewed_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\User $assignedFrom
- * @property-read \App\Models\User $assignedTo
- * @method static \Modules\Admin\Database\Factories\NotificationFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereAssignedFromUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereAssignedToUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereLink($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereViewed($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereViewedAt($value)
- */
-	class Notification extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- *
- *
- * @property string $id
- * @property string $name
- * @property string $label
- * @property string $module
- * @property string $guard_name
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Roles\Models\Permission> $permissions
- * @property-read int|null $permissions_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Roles\Models\Role> $roles
- * @property-read int|null $roles_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
- * @property-read int|null $users_count
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission permission($permissions, $without = false)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission role($roles, $guard = null, $without = false)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission whereGuardName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission whereLabel($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission whereModule($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission withoutPermission($permissions)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Permission withoutRole($roles, $guard = null)
- */
-	class Permission extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- *
- *
- * @property string $id
- * @property string $name
- * @property string $label
- * @property string $guard_name
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Roles\Models\Permission> $permissions
- * @property-read int|null $permissions_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
- * @property-read int|null $users_count
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role permission($permissions, $without = false)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role whereGuardName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role whereLabel($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Roles\Models\Role withoutPermission($permissions)
- */
-	class Role extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- *
- *
- * @property string $id
- * @property string $key
- * @property string|null $value
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Settings\Models\Setting newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Settings\Models\Setting newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Settings\Models\Setting query()
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Settings\Models\Setting whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Settings\Models\Setting whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Settings\Models\Setting whereKey($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Settings\Models\Setting whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Settings\Models\Setting whereValue($value)
- */
-	class Setting extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- *
- *
+ * @mixin IdeHelperUser
  * @property string $id
  * @property string $name
  * @property string $slug
@@ -233,5 +81,163 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutTrashed()
  */
 	class User extends \Eloquent implements \Illuminate\Contracts\Auth\MustVerifyEmail {}
+}
+
+namespace Modules\Admin\Models{
+/**
+ * 
+ *
+ * @mixin IdeHelperNotification
+ * @property string $id
+ * @property string $title
+ * @property string $assigned_to_user_id
+ * @property string $assigned_from_user_id
+ * @property string|null $link
+ * @property int|null $viewed
+ * @property string|null $viewed_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User $assignedFrom
+ * @property-read \App\Models\User $assignedTo
+ * @method static \Modules\Admin\Database\Factories\NotificationFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification whereAssignedFromUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification whereAssignedToUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification whereLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification whereViewed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Notification whereViewedAt($value)
+ */
+	class Notification extends \Eloquent {}
+}
+
+namespace Modules\AuditTrails\Models{
+/**
+ * 
+ *
+ * @mixin IdeHelperAuditTrail
+ * @property string $id
+ * @property string|null $user_id
+ * @property string $title
+ * @property string|null $link
+ * @property string $reference_id
+ * @property string $section
+ * @property string $type
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\User|null $user
+ * @method static \Modules\AuditTrails\Database\Factories\AuditTrailsFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail query()
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail whereLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail whereReferenceId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail whereSection($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|AuditTrail withoutTrashed()
+ */
+	class AuditTrail extends \Eloquent {}
+}
+
+namespace Modules\Roles\Models{
+/**
+ * 
+ *
+ * @mixin IdeHelperPermission
+ * @property string $id
+ * @property string $name
+ * @property string $label
+ * @property string $module
+ * @property string $guard_name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Permission> $permissions
+ * @property-read int|null $permissions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Roles\Models\Role> $roles
+ * @property-read int|null $roles_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
+ * @property-read int|null $users_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission permission($permissions, $without = false)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission role($roles, $guard = null, $without = false)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereGuardName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereLabel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereModule($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission withoutPermission($permissions)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission withoutRole($roles, $guard = null)
+ */
+	class Permission extends \Eloquent {}
+}
+
+namespace Modules\Roles\Models{
+/**
+ * 
+ *
+ * @mixin IdeHelperRole
+ * @property string $id
+ * @property string $name
+ * @property string $label
+ * @property string $guard_name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Roles\Models\Permission> $permissions
+ * @property-read int|null $permissions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
+ * @property-read int|null $users_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Role newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Role newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Role permission($permissions, $without = false)
+ * @method static \Illuminate\Database\Eloquent\Builder|Role query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Role whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Role whereGuardName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Role whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Role whereLabel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Role whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Role withoutPermission($permissions)
+ */
+	class Role extends \Eloquent {}
+}
+
+namespace Modules\Settings\Models{
+/**
+ * 
+ *
+ * @mixin IdeHelperSetting
+ * @property string $id
+ * @property string $key
+ * @property string|null $value
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereValue($value)
+ */
+	class Setting extends \Eloquent {}
 }
 

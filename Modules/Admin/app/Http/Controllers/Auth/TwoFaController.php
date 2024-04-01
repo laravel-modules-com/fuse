@@ -6,11 +6,11 @@ namespace Modules\Admin\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
+use Illuminate\View\View;
 use Modules\Admin\Http\Requests\Auth\TwoFaUpdateRequest;
 use Modules\AuditTrails\Models\AuditTrail;
 use RobThree\Auth\TwoFactorAuth;

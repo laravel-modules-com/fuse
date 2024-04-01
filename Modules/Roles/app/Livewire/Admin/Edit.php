@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Roles\Livewire\Admin;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Unique;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Modules\Roles\Models\Permission;
@@ -56,7 +56,6 @@ class Edit extends Component
 
         if (isset($this->role->permissions)) {
             foreach ($this->role->permissions as $perm) {
-                //@phpstan-ignore-next-line
                 $this->permissions[] = $perm->name;
             }
         }
@@ -83,7 +82,6 @@ class Edit extends Component
     {
         $this->validate();
 
-        //@phpstan-ignore-next-line
         $this->role->label = $this->label;
         $this->role->name = strtolower(str_replace(' ', '_', $this->label));
 

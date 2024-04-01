@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Users\Livewire\Admin;
 
 use App\Models\User;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Carbon;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Modules\AuditTrails\Models\AuditTrail;

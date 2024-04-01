@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Users\Livewire\Admin\Edit;
 
 use App\Models\User;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 use function add_user_log;

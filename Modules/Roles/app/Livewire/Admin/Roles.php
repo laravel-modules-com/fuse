@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Roles\Livewire\Admin;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;

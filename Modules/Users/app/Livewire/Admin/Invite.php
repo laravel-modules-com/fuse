@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Users\Livewire\Admin;
 
 use App\Models\User;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Modules\Roles\Models\Role;

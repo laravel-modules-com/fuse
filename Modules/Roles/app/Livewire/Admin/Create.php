@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Roles\Livewire\Admin;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Unique;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Modules\Roles\Models\Role;

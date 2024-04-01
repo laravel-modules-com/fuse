@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Settings\Livewire\Admin;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 use Livewire\Component;
 use Modules\Settings\Models\Setting;
 

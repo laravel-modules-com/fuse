@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Users\Livewire\Admin\Edit;
 
 use App\Models\User;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;

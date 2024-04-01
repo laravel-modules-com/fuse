@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Users\Livewire\Admin\Edit;
 
 use App\Models\User;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 use Livewire\Component;
 
 use function add_user_log;

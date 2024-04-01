@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Users\Livewire\Admin\Edit;
 
 use App\Models\User;
-use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 use Livewire\Component;
 use Modules\Admin\Rules\TwoFactorCodeRule;
 use RobThree\Auth\TwoFactorAuth;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Admin\Livewire\Admin;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 use Modules\Admin\Models\Notification;
 
