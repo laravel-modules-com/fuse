@@ -1,5 +1,5 @@
-@if (session('status'))
+@session('status')
     <div class="alert alert-yellow">
-        {{ session('status') }}
+        {{ $value }}
     </div>
-@endif
+@endsession

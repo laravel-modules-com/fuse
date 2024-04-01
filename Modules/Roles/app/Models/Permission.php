@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Roles\Models;
 
-use App\Models\Traits\HasUuid;
+use Modules\Admin\Models\Traits\HasUuid;
 use Spatie\Permission\Models\Permission as SpatiePermission;
 
 class Permission extends SpatiePermission

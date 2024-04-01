@@ -1,5 +1,5 @@
 {
-    "Auth": true,
+    "Admin": true,
     "Users": true,
     "Roles": true,
     "Settings": true,

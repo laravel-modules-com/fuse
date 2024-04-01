@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Settings\Models;
 
-use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Admin\Models\Traits\HasUuid;
 
 class Setting extends Model
 {

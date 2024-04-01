@@ -1,6 +1,4 @@
-## Laravel AdminTW
-
-> From version 5 AdminTW is a complete project rather than a package. If you are looking for the package version, please use version 4.
+## Modules Starter Kit
 
 Laravel AdminTW is a Laravel Starter Kit | TALL admin theme.
 
@@ -34,13 +32,9 @@ Set database and emails settings inside `.env`
 4. Run `php artisan migrate --seed`
 5. Run `php artisan serve`
 
-Laravel AdminTW supports both light and dark mode based on the users OS.
+Supports both light and dark mode based on the users OS.
 
 Provided are blade and Laravel Livewire components for common layout / UI elements and a complete test suite (Pest PHP).
-
-## Documentation
-
-Complete docs at [laraveladmintw.com](https://laraveladmintw.com)
 
 ## Community
 
@@ -62,4 +56,4 @@ If you discover any security related issues, please email dave@dcblog.dev email 
 
 ## License
 
-Laravel AdminTW is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

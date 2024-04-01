@@ -62,19 +62,19 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\User $assignedFrom
  * @property-read \App\Models\User $assignedTo
- * @method static \Database\Factories\NotificationFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Notification newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Notification newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Notification query()
- * @method static \Illuminate\Database\Eloquent\Builder|Notification whereAssignedFromUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Notification whereAssignedToUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Notification whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Notification whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Notification whereLink($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Notification whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Notification whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Notification whereViewed($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Notification whereViewedAt($value)
+ * @method static \Modules\Admin\Database\Factories\NotificationFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereAssignedFromUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereAssignedToUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereViewed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Modules\Admin\Models\Notification whereViewedAt($value)
  */
 	class Notification extends \Eloquent {}
 }

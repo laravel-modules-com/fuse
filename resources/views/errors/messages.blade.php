@@ -16,22 +16,20 @@
     @endif
 @endforeach
 
-{{--{{ session()->forget('flash_notification') }}--}}
-
 @if (session('message'))
     <div>
         {{ session('message') }}
     </div>
 @endif
 
-@if (session('success'))
+@session('success')
     <div class="alert alert-green">
-        {{ session('success') }}
+        {{ $value }}
     </div>
-@endif
+@endsession
 
-@if (session('status'))
-    <div class="alert alert-primary">
-        {{ session('status') }}
+@session('status')
+    <div class="alert alert-yellow">
+        {{ $value }}
     </div>
-@endif
+@endsession

@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
-use Modules\Auth\Rules\TwoFactorCodeRule;
+use Modules\Admin\Rules\TwoFactorCodeRule;
 use RobThree\Auth\TwoFactorAuth;
 use RobThree\Auth\TwoFactorAuthException;
 
