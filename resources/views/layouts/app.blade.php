@@ -9,7 +9,7 @@
 </head>
 <body class="font-sans antialiased">
 
-<div x-data="{ sidebarOpen: false }" x-cloak>
+<div x-data="{ sidebarOpen: false }">
     <div class="flex min-h-screen">
 
         @auth
