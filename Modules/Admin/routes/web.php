@@ -11,6 +11,7 @@ use Modules\Admin\Http\Controllers\Auth\PasswordResetLinkController;
 use Modules\Admin\Http\Controllers\Auth\RegisteredUserController;
 use Modules\Admin\Http\Controllers\Auth\TwoFaController;
 use Modules\Admin\Http\Controllers\Auth\VerifyEmailController;
+use Modules\Admin\Http\Controllers\UploadController;
 use Modules\Admin\Livewire\Admin\Dashboard;
 
 Route::middleware('guest')->group(function () {
@@ -44,6 +45,8 @@ Route::middleware('auth')->group(function () {
 
 Route::prefix(config('fuse.prefix'))->middleware(['auth', 'verified', 'activeUser', 'ipCheckMiddleware'])->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
+
+    Route::post('image-upload', [UploadController::class, 'index']);
 
     Route::get('2fa', [TwoFaController::class, 'index'])->name('admin.2fa');
     Route::post('2fa', [TwoFaController::class, 'update'])->name('admin.2fa.update');
