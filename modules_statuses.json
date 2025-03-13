@@ -3,5 +3,6 @@
     "Users": true,
     "Roles": true,
     "Settings": true,
-    "AuditTrails": true
+    "AuditTrails": true,
+    "Blog": true
 }

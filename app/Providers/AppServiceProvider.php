@@ -19,10 +19,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register(): void
-    {
-
-    }
+    public function register(): void {}
 
     /**
      * Bootstrap any application services.
@@ -46,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.app', function () {
             if (auth()->check()) {
                 foreach (Setting::all() as $setting) {
-                    //override config setting
+                    // override config setting
                     config()->set([$setting->key => $setting->value]);
                 }
             }

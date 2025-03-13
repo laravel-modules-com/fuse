@@ -3,7 +3,7 @@
 use Modules\Admin\Http\Requests\Auth\TwoFaUpdateRequest;
 
 beforeEach(function () {
-    test()->requestData = new TwoFaUpdateRequest();
+    test()->requestData = new TwoFaUpdateRequest;
 });
 
 test('rules', function () {

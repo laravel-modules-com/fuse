@@ -15,14 +15,14 @@ beforeEach(function () {
 });
 
 test('can see users page', function () {
-    get(route('admin.users.index'))
-        ->assertOk();
-});
+get(route('admin.users.index'))
+->assertOk();
+    });
 
 test('can see users edit page', function () {
-    get(route('admin.users.edit', User::factory()->create()))
-        ->assertOk();
-});
+get(route('admin.users.edit', User::factory()->create()))
+->assertOk();
+    });
 
 test('can search users', function () {
     Livewire::test(Users::class)

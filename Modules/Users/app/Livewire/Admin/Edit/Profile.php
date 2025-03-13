@@ -104,7 +104,7 @@ class Profile extends Component
             });
             $img->stream();
 
-            //@phpstan-ignore-next-line
+            // @phpstan-ignore-next-line
             Storage::disk('public')->put('users/'.$name, $img);
 
             $this->user->image = 'users/'.$name;

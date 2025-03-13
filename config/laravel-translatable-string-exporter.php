@@ -3,8 +3,8 @@
 return [
     // Directories to search in.
     'directories' => [
-        //'app',
-        //'resources',
+        // 'app',
+        // 'resources',
         'Modules/Auth',
     ],
 

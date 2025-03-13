@@ -11,7 +11,6 @@ use Modules\Admin\Http\Controllers\Auth\PasswordResetLinkController;
 use Modules\Admin\Http\Controllers\Auth\RegisteredUserController;
 use Modules\Admin\Http\Controllers\Auth\TwoFaController;
 use Modules\Admin\Http\Controllers\Auth\VerifyEmailController;
-use Modules\Admin\Http\Controllers\UploadController;
 use Modules\Admin\Livewire\Admin\Dashboard;
 
 Route::middleware('guest')->group(function () {

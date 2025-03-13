@@ -8,7 +8,7 @@ use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertTrue;
 
 beforeEach(function () {
-    test()->registrationData = new RegisterRequest();
+    test()->registrationData = new RegisterRequest;
 });
 
 test('rules', function () {

@@ -32,8 +32,8 @@ test('can see join page', function () {
 });
 
 test('cannot see join page with invalid token', function () {
-    get(route('join', test()->token))->assertNotFound();
-});
+get(route('join', test()->token))->assertNotFound();
+    });
 
 test('cannot see join page when logged in', function () {
     test()->authenticate();
