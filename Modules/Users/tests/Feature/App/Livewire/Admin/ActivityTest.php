@@ -97,7 +97,6 @@ test('can filter', function () {
     ]);
 
     Livewire::test(Activity::class, ['user' => auth()->user()])
-        ->set('user_id', auth()->user()->id)
         ->set('section', 'jobs')
         ->set('type', 'create')
         ->set('created_at', '2023-01-01 to 2023-01-31')
