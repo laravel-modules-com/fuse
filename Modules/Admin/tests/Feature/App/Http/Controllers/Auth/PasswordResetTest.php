@@ -32,7 +32,7 @@ test('reset password screen can be rendered', function () {
 
     post(route('password.request'), ['email' => $user->email]);
 
-    Notification::assertSentTo($user, ResetPassword::class, function ($notification) {
+    Notification::assertSentTo($user, ResetPassword::class, function (ResetPassword $notification) {
         get('/reset-password/'.$notification->token)->assertOk();
 
         return true;
