@@ -13,10 +13,10 @@ use function Pest\Laravel\post;
 uses(Tests\TestCase::class);
 
 test('login screen can be rendered', function () {
-get(route('login'))
-->assertOk()
-->assertViewIs('admin::auth.login');
-    });
+    get(route('login'))
+        ->assertOk()
+        ->assertViewIs('admin::auth.login');
+});
 
 test('users can authenticate using the login screen', function () {
     $user = User::factory()->create();

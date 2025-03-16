@@ -18,8 +18,8 @@ beforeEach(function () {
 });
 
 test('can see posts', function () {
-get(route('admin.blog.index'))->assertOk();
-    });
+    get(route('admin.blog.index'))->assertOk();
+});
 
 test('cannot see posts without admin permission', function () {
     test()->authenticate('user');
@@ -28,16 +28,16 @@ test('cannot see posts without admin permission', function () {
 });
 
 test('can see create post button', function () {
-get(route('admin.blog.index'))
-->assertOk()
-->assertSee('Create Post');
-    });
+    get(route('admin.blog.index'))
+        ->assertOk()
+        ->assertSee('Create Post');
+});
 
 test('can see manage categories button', function () {
-get(route('admin.blog.index'))
-->assertOk()
-->assertSee('Manage Categories');
-    });
+    get(route('admin.blog.index'))
+        ->assertOk()
+        ->assertSee('Manage Categories');
+});
 
 test('can search posts', function () {
     Livewire::test(Posts::class)

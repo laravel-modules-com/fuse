@@ -17,9 +17,9 @@ beforeEach(function () {
 });
 
 test('can see authors', function () {
-get(route('admin.blog.authors.index'))
-->assertOk();
-    });
+    get(route('admin.blog.authors.index'))
+        ->assertOk();
+});
 
 test('cannot see authors without admin permission', function () {
     test()->authenticate('user');
@@ -29,16 +29,16 @@ test('cannot see authors without admin permission', function () {
 });
 
 test('can see create author button', function () {
-get(route('admin.blog.authors.index'))
-->assertOk()
-->assertSee('Create Author');
-    });
+    get(route('admin.blog.authors.index'))
+        ->assertOk()
+        ->assertSee('Create Author');
+});
 
 test('can see manage posts button', function () {
-get(route('admin.blog.authors.index'))
-->assertOk()
-->assertSee('Manage Posts');
-    });
+    get(route('admin.blog.authors.index'))
+        ->assertOk()
+        ->assertSee('Manage Posts');
+});
 
 test('can search authors', function () {
     Livewire::test(Authors::class)

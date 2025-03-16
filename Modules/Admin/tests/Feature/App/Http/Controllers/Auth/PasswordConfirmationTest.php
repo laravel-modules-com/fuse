@@ -10,9 +10,9 @@ beforeEach(function () {
 });
 
 test('confirm password screen can be rendered', function () {
-get(route('password.confirm'))
-->assertOk();
-    });
+    get(route('password.confirm'))
+        ->assertOk();
+});
 
 test('password can be confirmed', function () {
     post(route('password.confirm'), [

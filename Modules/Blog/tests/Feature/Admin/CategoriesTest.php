@@ -17,9 +17,9 @@ beforeEach(function () {
 });
 
 test('can see categories', function () {
-get(route('admin.blog.categories.index'))
-->assertOk();
-    });
+    get(route('admin.blog.categories.index'))
+        ->assertOk();
+});
 
 test('cannot see categories without admin permission', function () {
     test()->authenticate('user');
@@ -29,16 +29,16 @@ test('cannot see categories without admin permission', function () {
 });
 
 test('can see create category button', function () {
-get(route('admin.blog.categories.index'))
-->assertOk()
-->assertSee('Create Category');
-    });
+    get(route('admin.blog.categories.index'))
+        ->assertOk()
+        ->assertSee('Create Category');
+});
 
 test('can see manage posts button', function () {
-get(route('admin.blog.categories.index'))
-->assertOk()
-->assertSee('Manage Posts');
-    });
+    get(route('admin.blog.categories.index'))
+        ->assertOk()
+        ->assertSee('Manage Posts');
+});
 
 test('can search categories', function () {
     Livewire::test(Categories::class)

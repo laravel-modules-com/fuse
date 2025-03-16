@@ -10,9 +10,9 @@ use function Pest\Laravel\get;
 uses(Tests\TestCase::class);
 
 test('can see posts', function () {
-get(route('blog.index'))
-->assertOk();
-    });
+    get(route('blog.index'))
+        ->assertOk();
+});
 
 test('can see single post', function () {
     $post = Post::factory()->create();
@@ -21,9 +21,9 @@ test('can see single post', function () {
 });
 
 test('can see categories', function () {
-get(route('blog.categories.index'))
-->assertOk();
-    });
+    get(route('blog.categories.index'))
+        ->assertOk();
+});
 
 test('can see single category', function () {
     $category = Category::factory()->create();
@@ -39,9 +39,9 @@ test('can see single category', function () {
 });
 
 test('can see authors', function () {
-get(route('blog.authors.index'))
-->assertOk();
-    });
+    get(route('blog.authors.index'))
+        ->assertOk();
+});
 
 test('can see single author', function () {
     $author = Author::factory()->create();
@@ -55,6 +55,6 @@ test('can see single author', function () {
 });
 
 test('can see rss', function () {
-get(route('blog.rss'))
-->assertOk();
-    });
+    get(route('blog.rss'))
+        ->assertOk();
+});

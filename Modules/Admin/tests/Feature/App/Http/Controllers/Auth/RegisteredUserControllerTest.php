@@ -10,8 +10,8 @@ use function Pest\Laravel\post;
 uses(Tests\TestCase::class);
 
 test('can see register page', function () {
-get(route('register'))->assertOk();
-    });
+    get(route('register'))->assertOk();
+});
 
 test('users cannot register with invalid password', function () {
     post(route('register'), [
