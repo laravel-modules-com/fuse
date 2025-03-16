@@ -8,21 +8,21 @@ use Modules\AuditTrails\Models\AuditTrail;
 if (! function_exists('can')) {
     function can(string $action): bool
     {
-        return auth()->user()->can($action);
+        return auth()->user()?->can($action);
     }
 }
 
 if (! function_exists('cannot')) {
     function cannot(string $action): bool
     {
-        return auth()->user()->cannot($action);
+        return auth()->user()?->cannot($action);
     }
 }
 
 if (! function_exists('hasRole')) {
     function hasRole(string $role): bool
     {
-        return auth()->user()->hasRole($role);
+        return auth()->user()?->hasRole($role);
     }
 }
 
@@ -30,7 +30,7 @@ if (! function_exists('abort_if_cannot')) {
     function abort_if_cannot(string $action, int $code = 403): void
     {
         $message = 'You do not have permissions to '.strtolower(str_replace('_', ' ', $action));
-        abort_unless(auth()->user()->can($action), $code, $message);
+        abort_unless(auth()->user()?->can($action), $code, $message);
     }
 }
 
