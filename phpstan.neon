@@ -1,6 +1,6 @@
 includes:
     - vendor/larastan/larastan/extension.neon
-    - phpstan-baseline.neon
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
 
 parameters:
 
@@ -8,7 +8,7 @@ parameters:
         - Modules/*/tests/*
 
     paths:
-        - app/
+        - app
         - Modules/
 
     scanFiles:
@@ -16,5 +16,8 @@ parameters:
         - _ide_helper_models.php
         - .phpstorm.meta.php
 
-    # Level 9 is the highest level
-    level: 6
+    level: 8
+
+    ignoreErrors:
+    - '#Cannot access property \$[a-zA-Z0-9\\_]+ on App\\Models\\User\|null#'
+    - '#Cannot call method [a-zA-Z0-9\\_]+\(\) on App\\Models\\User\|null#'
