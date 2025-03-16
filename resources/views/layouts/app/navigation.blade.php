@@ -17,10 +17,6 @@
     <x-nav.link route="dashboard" icon="fas fa-home">{{ __('Dashboard') }}</x-nav.link>
 @endcan
 
-@can('view_blog')
-    <x-nav.link route="admin.blog.index" icon="fas fa-book">{{ __('Blog') }}</x-nav.link>
-@endcan
-
 @if(can('view_system_settings') || can('view_roles') || can('view_audit_trails') || can('view_sent_emails'))
     <x-nav.group label="Settings" route="admin.settings" icon="fas fa-cogs">
         @can('view_audit_trails')
