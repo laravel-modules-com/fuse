@@ -23,19 +23,19 @@ namespace App\Models{
  * @property string|null $image
  * @property bool $is_office_login_only
  * @property bool $is_active
- * @property \Illuminate\Support\Carbon|null $email_verified_at
- * @property \Illuminate\Support\Carbon|null $last_logged_in_at
+ * @property \Carbon\CarbonImmutable|null $email_verified_at
+ * @property \Carbon\CarbonImmutable|null $last_logged_in_at
  * @property bool $two_fa_active
  * @property string|null $two_fa_secret_key
  * @property string|null $invited_by
- * @property \Illuminate\Support\Carbon|null $invited_at
- * @property \Illuminate\Support\Carbon|null $joined_at
+ * @property \Carbon\CarbonImmutable|null $invited_at
+ * @property \Carbon\CarbonImmutable|null $joined_at
  * @property string|null $invite_token
- * @property \Illuminate\Support\Carbon|null $last_activity
+ * @property \Carbon\CarbonImmutable|null $last_activity
  * @property string|null $remember_token
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $deleted_at
  * @property-read User|null $invite
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
@@ -93,8 +93,8 @@ namespace Modules\Admin\Models{
  * @property string|null $link
  * @property int|null $viewed
  * @property string|null $viewed_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @property-read \App\Models\User $assignedFrom
  * @property-read \App\Models\User $assignedTo
  * @method static \Modules\Admin\Database\Factories\NotificationFactory factory($count = null, $state = [])
@@ -125,9 +125,9 @@ namespace Modules\AuditTrails\Models{
  * @property string $reference_id
  * @property string $section
  * @property string $type
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $deleted_at
  * @property-read \App\Models\User|null $user
  * @method static \Modules\AuditTrails\Database\Factories\AuditTrailsFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|AuditTrail newModelQuery()
@@ -165,8 +165,8 @@ namespace Modules\Blog\Models{
  * @property string|null $twitter
  * @property string|null $github
  * @property string|null $youtube
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @property string|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Blog\Models\Post> $posts
  * @property-read int|null $posts_count
@@ -200,8 +200,8 @@ namespace Modules\Blog\Models{
  * @property string $parent_id
  * @property string $title
  * @property string $slug
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, Category> $children
  * @property-read int|null $children_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Blog\Models\Post> $posts
@@ -248,12 +248,12 @@ namespace Modules\Blog\Models{
  * @property string $author_id
  * @property string|null $description
  * @property string|null $content
- * @property \Illuminate\Support\Carbon $display_at
+ * @property \Carbon\CarbonImmutable $display_at
  * @property string|null $shortlink
  * @property string|null $download
  * @property string|null $demo
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @property string|null $deleted_at
  * @property-read \Modules\Blog\Models\Author|null $author
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Blog\Models\Category> $categories
@@ -291,8 +291,8 @@ namespace Modules\Roles\Models{
  * @property string $label
  * @property string $module
  * @property string $guard_name
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, Permission> $permissions
  * @property-read int|null $permissions_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Roles\Models\Role> $roles
@@ -325,8 +325,8 @@ namespace Modules\Roles\Models{
  * @property string $name
  * @property string $label
  * @property string $guard_name
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Roles\Models\Permission> $permissions
  * @property-read int|null $permissions_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
@@ -353,8 +353,8 @@ namespace Modules\Settings\Models{
  * @property string $id
  * @property string $key
  * @property string|null $value
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Setting newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Setting newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Setting query()
