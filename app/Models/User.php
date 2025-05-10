@@ -13,9 +13,16 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Admin\Models\Traits\HasUuid;
+use Modules\Roles\Models\Role;
 use Modules\Users\Database\Factories\UserFactory;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @method bool assignRole(string|array|Role ...$roles)
+ * @method bool hasRole(string|array|Role $roles)
+ * @method bool can(string $permission, mixed $arguments = null)
+ * @method bool cannot(string $permission, mixed $arguments = null)
+ */
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
@@ -89,10 +96,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return HasOne<User, $this>
+     * @return HasOne<User, User>
      */
     public function invite(): HasOne
     {
+        /** @var HasOne<User, User> */
         return $this->hasOne(User::class, 'id', 'invited_by');
     }
 }

@@ -8,6 +8,7 @@ use Modules\AuditTrails\Models\AuditTrail;
 if (! function_exists('can')) {
     function can(string $action): bool
     {
+        /** @var \App\Models\User|null $user */
         return auth()->user()?->can($action);
     }
 }

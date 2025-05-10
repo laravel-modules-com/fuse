@@ -7,6 +7,8 @@ namespace App\Providers;
 use App\Models\User;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
@@ -34,12 +36,18 @@ class AppServiceProvider extends ServiceProvider
 
     private function configureAuth(): void
     {
-        Gate::before(fn (?User $user) => $user?->hasRole('admin') ? true : null);
+        Gate::before(function (?User $user) {
+            if ($user === null) {
+                return null;
+            }
+
+            return $user->hasRole('admin') ? true : null;
+        });
     }
 
     private function configureCommands(): void
     {
-        DB::prohibitDestructiveCommands($this->app->isProduction());
+        DB::prohibitDestructiveCommands(Application::getInstance()->isProduction());
     }
 
     private function configureDates(): void
@@ -49,7 +57,7 @@ class AppServiceProvider extends ServiceProvider
 
     private function configureModels(): void
     {
-        Model::shouldBeStrict(! $this->app->isProduction());
+        Model::shouldBeStrict(! Application::getInstance()->isProduction());
     }
 
     private function configureHttp(): void
@@ -78,7 +86,7 @@ class AppServiceProvider extends ServiceProvider
     private function configureViews(): void
     {
         view()->composer('layouts.app', function () {
-            if (auth()->check()) {
+            if (Auth::check()) {
                 $settings = cache()->remember('settings', 3600, fn () => Setting::all());
                 foreach ($settings as $setting) {
                     config()->set([$setting->key => $setting->value]);

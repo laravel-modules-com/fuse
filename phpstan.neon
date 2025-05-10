@@ -1,23 +1,15 @@
 includes:
     - vendor/larastan/larastan/extension.neon
-    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
 
 parameters:
 
     excludePaths:
+        - Modules/Migration/*
+        - Modules/*/database*
         - Modules/*/tests/*
 
     paths:
-        - app
+        - app/
         - Modules/
 
-    scanFiles:
-        - _ide_helper.php
-        - _ide_helper_models.php
-        - .phpstorm.meta.php
-
     level: 8
-
-    ignoreErrors:
-    - '#Cannot access property \$[a-zA-Z0-9\\_]+ on App\\Models\\User\|null#'
-    - '#Cannot call method [a-zA-Z0-9\\_]+\(\) on App\\Models\\User\|null#'
