@@ -14,4 +14,4 @@ test('can delete image', function () {
     app(DeleteImageAction::class)($path);
 
     Storage::disk('public')->assertMissing($path);
-})->skip('to fix');
+});

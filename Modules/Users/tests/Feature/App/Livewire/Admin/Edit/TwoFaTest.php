@@ -5,8 +5,6 @@ use Livewire\Livewire;
 use Modules\Users\Livewire\Admin\Edit\TwoFactorAuthentication;
 use RobThree\Auth\TwoFactorAuth;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
     $this->authenticate();
 });
@@ -14,7 +12,7 @@ beforeEach(function () {
 test('can set property', function () {
     $this
         ->get(route('admin.users.edit', User::factory()->create()))
-        ->assertSeeLivewire(TwoFactorAuthentication::class);
+        ->assertSeeLivewire('users::admin.edit.two-factor-authentication');
 });
 
 test('verify code is required', function () {

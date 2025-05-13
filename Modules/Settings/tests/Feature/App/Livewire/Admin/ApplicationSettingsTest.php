@@ -4,8 +4,6 @@ use Livewire\Livewire;
 use Modules\Settings\Livewire\Admin\ApplicationSettings;
 use Modules\Settings\Models\Setting;
 
-uses(Tests\TestCase::class);
-
 test('can see settings page', function () {
     $this->authenticate();
     $this->get(route('admin.settings'))->assertOk();

@@ -7,8 +7,6 @@ use Modules\Roles\Models\Role;
 use Modules\Users\Livewire\Admin\Invite;
 use Modules\Users\Mail\SendInviteMail;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
     $this->authenticate();
 });

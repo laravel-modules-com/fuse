@@ -7,10 +7,8 @@ use RobThree\Auth\TwoFactorAuth;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
-    test()->user = $this->authenticate();
+    $this->user = $this->authenticate();
 });
 
 test('redirects when 2fa has already been verified', function () {

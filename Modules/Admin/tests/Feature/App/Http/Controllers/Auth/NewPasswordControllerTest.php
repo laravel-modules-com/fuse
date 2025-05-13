@@ -10,8 +10,6 @@ use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-uses(Tests\TestCase::class);
-
 test('can view forgotten password page', function () {
     assertGuest();
 
@@ -20,7 +18,7 @@ test('can view forgotten password page', function () {
 });
 
 test('cannot view forgotten password page when logged in', function () {
-    test()->authenticate();
+    $this->authenticate();
 
     get(route('password.reset', 'token'))
         ->assertRedirect(route('dashboard'));

@@ -4,8 +4,6 @@ use Livewire\Livewire;
 use Modules\Settings\Livewire\Admin\SecuritySettings;
 use Modules\Settings\Models\Setting;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
     $this->authenticate();
 });

@@ -5,8 +5,6 @@ use Modules\Roles\Livewire\Admin\Edit;
 use Modules\Roles\Models\Permission;
 use Modules\Roles\Models\Role;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
     $this->authenticate();
 });

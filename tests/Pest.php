@@ -1,5 +1,11 @@
 <?php
 
-use Tests\TestCase;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 
-uses(TestCase::class)->in(__DIR__);
+pest()->extend(Tests\TestCase::class)
+    ->in(dirname(__DIR__))
+    ->beforeEach(function () {
+        Http::preventStrayRequests();
+    });
+
+uses(LazilyRefreshDatabase::class)->in(dirname(__DIR__));

@@ -4,8 +4,6 @@ use App\Models\User;
 use Livewire\Livewire;
 use Modules\Users\Livewire\Admin\Edit\ChangePassword;
 
-uses(Tests\TestCase::class);
-
 test('can see change password', function () {
     $this->authenticate();
 

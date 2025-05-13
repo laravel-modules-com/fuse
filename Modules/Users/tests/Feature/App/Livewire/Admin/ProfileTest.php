@@ -2,8 +2,6 @@
 
 use App\Models\User;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
     $this->authenticate();
 });

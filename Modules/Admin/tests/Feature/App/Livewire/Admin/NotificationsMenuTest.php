@@ -4,8 +4,6 @@ use Livewire\Livewire;
 use Modules\Admin\Livewire\Admin\NotificationsMenu;
 use Modules\Admin\Models\Notification;
 
-uses(Tests\TestCase::class);
-
 test('can see notifications', function () {
 
     test()->authenticate();

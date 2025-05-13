@@ -5,13 +5,10 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
 
-use function Pest\Laravel\actingAs;
 use function Pest\Laravel\post;
 
-uses(Tests\TestCase::class);
-
 test('when email verified redirect to dashboard', function () {
-    test()->authenticate();
+    $this->authenticate();
 
     post(route('verification.send'))
         ->assertRedirect(route('dashboard'));
@@ -30,7 +27,7 @@ test('email can be verified', function () {
         ['id' => $user->id, 'hash' => sha1($user->email)]
     );
 
-    actingAs($user)
+    $this->actingAs($user)
         ->get($verificationUrl)
         ->assertRedirect(route('dashboard'));
 
@@ -50,14 +47,14 @@ test('email is not verified with invalid hash', function () {
         ['id' => $user->id, 'hash' => sha1('wrong-email')]
     );
 
-    actingAs($user)
+    $this->actingAs($user)
         ->get($verificationUrl);
 
     expect($user->fresh()->hasVerifiedEmail())->toBeFalse();
 });
 
 test('when email is not verified redirect back', function () {
-    test()->authenticate();
+    $this->authenticate();
 
     auth()->user()->update(['email_verified_at' => null]);
 

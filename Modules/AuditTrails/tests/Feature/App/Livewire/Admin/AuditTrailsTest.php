@@ -5,8 +5,6 @@ use Livewire\Livewire;
 use Modules\AuditTrails\Livewire\Admin\AuditTrails;
 use Modules\AuditTrails\Models\AuditTrail;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
     $this->user = $this->authenticate();
 });

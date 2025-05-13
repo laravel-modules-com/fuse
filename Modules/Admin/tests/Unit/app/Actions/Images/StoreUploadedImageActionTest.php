@@ -32,4 +32,4 @@ test('can store image', function () {
         ->toContain('.jpg');
 
     Storage::disk('public')->delete($newPath);
-})->skip('to fix');
+});

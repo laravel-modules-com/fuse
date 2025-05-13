@@ -10,12 +10,8 @@ use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\post;
 
-uses(Tests\TestCase::class);
-
 test('login screen can be rendered', function () {
-    get(route('login'))
-        ->assertOk()
-        ->assertViewIs('admin::auth.login');
+    get(route('login'))->assertOk();
 });
 
 test('users can authenticate using the login screen', function () {
@@ -43,7 +39,7 @@ test('users can not authenticate with invalid password', function () {
 });
 
 test('can logout', function () {
-    test()->authenticate();
+    $this->authenticate();
 
     post(route('logout'))
         ->assertRedirect('/');

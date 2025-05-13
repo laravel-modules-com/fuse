@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 use function PHPUnit\Framework\assertInstanceOf;
 
-uses(Tests\TestCase::class);
-
 test('can get route', function () {
     $user = User::factory()->create();
 

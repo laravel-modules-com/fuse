@@ -4,8 +4,6 @@ use Livewire\Livewire;
 use Modules\AuditTrails\Models\AuditTrail;
 use Modules\Users\Livewire\Admin\Edit\AdminSettings;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
     $this->authenticate();
 });
@@ -13,7 +11,7 @@ beforeEach(function () {
 test('can see admin settings', function () {
     $this
         ->get(route('admin.users.edit', auth()->user()))
-        ->assertSeeLivewire(AdminSettings::class);
+        ->assertSeeLivewire('users::admin.edit.admin-settings');
 });
 
 test('can update user settings', function () {

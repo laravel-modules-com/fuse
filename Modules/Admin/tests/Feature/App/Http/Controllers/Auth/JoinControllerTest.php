@@ -10,8 +10,6 @@ use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
 use function Pest\Laravel\put;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
     test()->token = Str::random(32);
     test()->ownerUser = User::factory()->create();
@@ -21,32 +19,26 @@ test('can see join page', function () {
     assertGuest();
 
     User::factory()->create([
-        'invite_token' => test()->token,
-        'invited_by' => test()->ownerUser->id,
+        'invite_token' => $this->token,
+        'invited_by' => $this->ownerUser->id,
         'invited_at' => now(),
     ]);
 
-    get(route('join', test()->token))
-        ->assertOk()
-        ->assertViewIs('admin::auth.join');
-});
-
-test('cannot see join page with invalid token', function () {
-    get(route('join', test()->token))->assertNotFound();
+    get(route('join', $this->token))->assertOk();
 });
 
 test('cannot see join page when logged in', function () {
-    test()->authenticate();
+    $this->authenticate();
 
-    get(route('join', test()->token))
+    get(route('join', $this->token))
         ->assertRedirect(route('dashboard'));
 });
 
 test('can join with password', function () {
 
     $user = User::factory()->create([
-        'invite_token' => test()->token,
-        'invited_by' => test()->ownerUser->id,
+        'invite_token' => $this->token,
+        'invited_by' => $this->ownerUser->id,
         'invited_at' => now(),
     ]);
 

@@ -5,8 +5,6 @@ use Livewire\Livewire;
 use Modules\AuditTrails\Models\AuditTrail;
 use Modules\Users\Livewire\Admin\Activity;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
     $this->authenticate();
 });
@@ -97,6 +95,7 @@ test('can filter', function () {
     ]);
 
     Livewire::test(Activity::class, ['user' => auth()->user()])
+        ->set('user', auth()->user())
         ->set('section', 'jobs')
         ->set('type', 'create')
         ->set('created_at', '2023-01-01 to 2023-01-31')

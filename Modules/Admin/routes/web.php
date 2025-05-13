@@ -48,7 +48,7 @@ Route::prefix(config('fuse.prefix'))->middleware(['auth', 'verified', 'activeUse
 
     Route::view('developer-reference', 'admin::developer-reference')->name('developer-reference');
 
-    Route::post('image-upload', UploadController::class);
+    Route::post('image-upload', UploadController::class)->name('image-upload');
 
     Route::get('2fa', [TwoFaController::class, 'index'])->name('admin.2fa');
     Route::post('2fa', [TwoFaController::class, 'update'])->name('admin.2fa.update');

@@ -6,21 +6,19 @@ use Livewire\Livewire;
 use Modules\Users\Livewire\Admin\Users;
 use Modules\Users\Mail\SendInviteMail;
 
-use function Pest\Laravel\get;
-
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
-    test()->authenticate();
+    $this->authenticate();
 });
 
 test('can see users page', function () {
-    get(route('admin.users.index'))
+    $this
+        ->get(route('admin.users.index'))
         ->assertOk();
 });
 
 test('can see users edit page', function () {
-    get(route('admin.users.edit', User::factory()->create()))
+    $this
+        ->get(route('admin.users.edit', User::factory()->create()))
         ->assertOk();
 });
 

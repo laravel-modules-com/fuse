@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
 use Modules\Users\Livewire\Admin\Edit\Profile;
 
-uses(Tests\TestCase::class);
-
 beforeEach(function () {
     $this->authenticate();
 });

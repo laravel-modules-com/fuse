@@ -32,9 +32,7 @@ class Roles extends Component
 
     public function render(): View
     {
-        $roles = Role::orderby('name')->get();
-
-        return view('users::livewire.admin.edit.roles', compact('roles'));
+        return view('users::livewire.admin.edit.roles');
     }
 
     public function update(): bool
@@ -43,7 +41,7 @@ class Roles extends Component
             ->firstOrFail();
 
         // if an admin role is not in array
-        if (! in_array((int) $role->id, $this->roleSelections, true)) {
+        if (! in_array($role->id, $this->roleSelections)) {
             $adminRolesCount = User::role('admin')->count();
 
             // when there is only 1 admin role alert user and stop
@@ -68,7 +66,7 @@ class Roles extends Component
     protected function syncRoles(): void
     {
         // @phpstan-ignore-next-line
-        $roles = collect($this->roleSelections)->map(function (string $roleId) {
+        $rolesWithTenant = collect($this->roleSelections)->map(function (string $roleId) {
             return [
                 'role_id' => $roleId,
                 'model_type' => User::class,
@@ -76,12 +74,12 @@ class Roles extends Component
             ];
         })->toArray();
 
-        $this->user->roles()->sync($roles);
+        $this->user->roles()->sync($rolesWithTenant);
 
         add_user_log([
             'title' => 'updated '.$this->user->name."'s roles",
             'reference_id' => $this->user->id,
-            'link' => route('users::admin.edit', ['user' => $this->user->id]),
+            'link' => route('admin.users.edit', ['user' => $this->user->id]),
             'section' => 'Users',
             'type' => 'Update',
         ]);
