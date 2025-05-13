@@ -2,7 +2,8 @@
 
 Fuse is a Laravel Starter Kit | TALL admin theme built with modules.
 
-<img width="1437" alt="Fuse" src="https://github.com/laravel-modules-com/fuse/assets/1018170/6cc73636-75b6-4d42-bc8b-c18e393f2b3d">
+![Fuse](https://raw.githubusercontent.com/dcblogdev/laravel-admintw/refs/heads/main/public/images/admintw-light.png)
+![Fuse](https://raw.githubusercontent.com/dcblogdev/laravel-admintw/refs/heads/main/public/images/admintw-dark.png)
 
 Fuse is built on top of Laravel, Livewire, and Tailwind CSS.
 
