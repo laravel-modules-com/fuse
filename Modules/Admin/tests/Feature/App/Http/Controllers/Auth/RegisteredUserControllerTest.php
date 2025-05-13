@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Notification;
+use Modules\Admin\Notifications\VerifyEmailNotification;
 use Modules\Roles\Models\Role;
 
 use function Pest\Laravel\assertGuest;
@@ -112,7 +112,7 @@ test('users can register and receive only one email verification notification', 
 
     Notification::assertSentTo(
         [$user],
-        VerifyEmail::class,
+        VerifyEmailNotification::class,
         1
     );
 
