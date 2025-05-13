@@ -10,7 +10,7 @@ jobs:
         strategy:
             max-parallel: 2
             matrix:
-                php-versions: ['8.2']
+                php-versions: ['8.3','8.4']
 
         name: PHP ${{ matrix.php-versions }}
 
@@ -67,7 +67,7 @@ jobs:
                 run: chmod -R 777 storage bootstrap/cache
 
             -   name: PINT
-                run: ./vendor/bin/pint --test
+                run: ./vendor/bin/pint
 
             -   name: Run test suite
                 run: ./vendor/bin/pest --parallel

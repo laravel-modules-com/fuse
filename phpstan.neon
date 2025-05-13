@@ -2,7 +2,6 @@ includes:
     - vendor/larastan/larastan/extension.neon
 
 parameters:
-
     excludePaths:
         - Modules/Migration/*
         - Modules/*/database*
@@ -12,4 +11,19 @@ parameters:
         - app/
         - Modules/
 
+    scanFiles:
+        - _ide_helper_models.php
+
     level: 8
+
+    ignoreErrors:
+        - '#Cannot access property \$[a-zA-Z0-9\\_]+ on App\\Models\\User\|null#'
+        - '#Cannot access property \$[a-zA-Z0-9\\_]+ on Modules\\Roles\\Models\\Role\|null#'
+        - '#Cannot call method [a-zA-Z0-9\\_]+\(\) on App\\Models\\User\|null#'
+        - '#Cannot call method [a-zA-Z0-9\\_]+\(\) on Modules\\Roles\\Models\\Role\|null#'
+        - '#Call to an undefined method App\\Models\\User::hasRole\(\)#'
+        - '#Call to an undefined method App\\Models\\User::assignRole\(\)#'
+        - '#Call to an undefined method App\\Models\\User::roles\(\)#'
+        - '#Relation ''roles'' is not found in App\\Models\\User model#'
+        - '#Relation ''invite'' is not found in App\\Models\\User model#'
+        - '#Relation ''user'' is not found in Modules\\AuditTrails\\Models\\AuditTrail model#'

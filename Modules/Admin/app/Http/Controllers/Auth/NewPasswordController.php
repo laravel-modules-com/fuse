@@ -7,6 +7,7 @@ namespace Modules\Admin\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -32,6 +33,7 @@ class NewPasswordController extends Controller
         $user->remember_token = Str::random(60);
         $user->save();
 
+        /** @var Authenticatable $user */
         event(new PasswordReset($user));
 
         $status = Password::PASSWORD_RESET;

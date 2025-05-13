@@ -7,6 +7,7 @@ namespace Modules\Admin\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
@@ -41,6 +42,7 @@ class RegisteredUserController extends Controller
 
         $user->assignRole('admin');
 
+        /** @var Authenticatable $user */
         event(new Registered($user));
 
         $user->sendEmailVerificationNotification();

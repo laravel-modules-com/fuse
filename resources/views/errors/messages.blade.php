@@ -1,35 +1,17 @@
 @foreach (session('flash_notification', collect())->toArray() as $message)
-    @if($message['level'] === 'danger' || $message['level'] === 'info')
-        <div class="alert alert-{{ $message['level'] }}" role="alert">
-            {!! $message['message'] !!}
-        </div>
-    @else
-        <div x-data="{ show: true }"
-             x-show="show"
-             x-transition
-             x-init="setTimeout(() => show = false, 2000)"
-             class="alert alert-{{ $message['level'] }}"
-             role="alert"
-        >
-            {!! $message['message'] !!}
-        </div>
-    @endif
+    <x-alert variant="{{ $message['level'] }}">{{ $message['message'] }}</x-alert>
 @endforeach
 
+{{ session()->forget('flash_notification') }}
+
 @if (session('message'))
-    <div>
-        {{ session('message') }}
-    </div>
+    <x-alert>{{ session('message') }}</x-alert>
 @endif
 
-@session('success')
-    <div class="alert alert-green">
-        {{ $value }}
-    </div>
-@endsession
+@if (session('success'))
+    <x-alert variant="red">{{ session('success') }}</x-alert>
+@endif
 
-@session('status')
-    <div class="alert alert-yellow">
-        {{ $value }}
-    </div>
-@endsession
+@if (session('status'))
+    <x-alert>{{ session('status') }}</x-alert>
+@endif

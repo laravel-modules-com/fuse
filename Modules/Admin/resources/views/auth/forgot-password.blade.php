@@ -1,6 +1,6 @@
 @section('title', __('Forgot Password'))
 
-<x-guest-layout>
+<x-layouts.guest>
     <x-auth-card>
 
         <div class="my-4 text-sm text-gray-600 dark:text-gray-400">
@@ -11,8 +11,8 @@
 
         <x-form action="{{ route('password.email') }}">
             <x-form.input type="email" :label="__('Email')" name="email">{{ old('email') }}</x-form.input>
-            <x-form.submit class="justify-center w-full btn btn-primary">{{ __('Email Password Reset Link') }}</x-form.submit>
+            <x-button class="justify-center w-full">{{ __('Email Password Reset Link') }}</x-button>
         </x-form>
 
     </x-auth-card>
-</x-guest-layout>
+</x-layouts.guest>

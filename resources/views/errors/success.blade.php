@@ -1,5 +1,3 @@
-@session('success')
-    <div class="alert alert-green">
-        {{ $value }}
-    </div>
-@endsession
+@if (session('success'))
+    <x-alert variant="red">{{ session('success') }}</x-alert>
+@endif

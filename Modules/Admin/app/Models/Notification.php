@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Admin\Models;
 
+use App\Models\Traits\HasUuid;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\Admin\Database\Factories\NotificationFactory;
-use Modules\Admin\Models\Traits\HasUuid;
 
 class Notification extends Model
 {
+    /** @use HasFactory<NotificationFactory> */
     use HasFactory;
+
     use HasUuid;
 
     protected $fillable = [
@@ -30,13 +32,21 @@ class Notification extends Model
         return NotificationFactory::new();
     }
 
+    /**
+     * @return BelongsTo<User, Notification>
+     */
     public function assignedTo(): BelongsTo
     {
+        /** @var BelongsTo<User, Notification> */
         return $this->belongsTo(User::class, 'assigned_to_user_id');
     }
 
+    /**
+     * @return BelongsTo<User, Notification>
+     */
     public function assignedFrom(): BelongsTo
     {
+        /** @var BelongsTo<User, Notification> */
         return $this->belongsTo(User::class, 'assigned_from_user_id');
     }
 }

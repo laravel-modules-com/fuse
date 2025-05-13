@@ -1,4 +1,6 @@
-<script src="{{ url('js/ckeditor5.js') }}"></script>
+@push('scripts')
+    <script src="{{ url('js/ckeditor5.js') }}"></script>
+@endpush
 
 @props([
     'name' => '',
@@ -47,5 +49,5 @@
     </textarea>
 </div>
 @error($name)
-    <p class="text-red-500 dark:text-red-300" aria-live="assertive">{{ $message }}</p>
+    <p class="error" aria-live="assertive">{{ $message }}</p>
 @enderror

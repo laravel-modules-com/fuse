@@ -8,22 +8,21 @@ use Modules\AuditTrails\Models\AuditTrail;
 if (! function_exists('can')) {
     function can(string $action): bool
     {
-        /** @var \App\Models\User|null $user */
-        return auth()->user()?->can($action);
+        return auth()->user()->can($action);
     }
 }
 
 if (! function_exists('cannot')) {
     function cannot(string $action): bool
     {
-        return auth()->user()?->cannot($action);
+        return auth()->user()->cannot($action);
     }
 }
 
 if (! function_exists('hasRole')) {
     function hasRole(string $role): bool
     {
-        return auth()->user()?->hasRole($role);
+        return auth()->user()->hasRole($role);
     }
 }
 
@@ -31,7 +30,7 @@ if (! function_exists('abort_if_cannot')) {
     function abort_if_cannot(string $action, int $code = 403): void
     {
         $message = 'You do not have permissions to '.strtolower(str_replace('_', ' ', $action));
-        abort_unless(auth()->user()?->can($action), $code, $message);
+        abort_unless(auth()->user()->can($action), $code, $message);
     }
 }
 
@@ -66,12 +65,11 @@ if (! function_exists('get_initials')) {
 }
 
 if (! function_exists('create_avatar')) {
-    function create_avatar(string $name, string $filename, string $path): string
+    function create_avatar(string $name, string $filename, string $path, string $disk = 'public'): string
     {
-        $avatar = new LasseRafn\InitialAvatarGenerator\InitialAvatar;
-        $source = $avatar->background('#000')->color('#fff')->name($name)->generate()->stream();
+        Storage::disk($disk)->makeDirectory($path);
 
-        Storage::disk('public')->put($path.$filename, $source);
+        Avatar::create($name)->save(Storage::disk($disk)->path($path.$filename), 100);
 
         return $path.$filename;
     }

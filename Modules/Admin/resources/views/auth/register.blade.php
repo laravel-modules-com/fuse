@@ -1,6 +1,6 @@
 @section('title', __('Register'))
 
-<x-guest-layout>
+<x-layouts.guest>
     <x-auth-card>
 
         @include('errors.messages')
@@ -13,10 +13,10 @@
 
             <div class="flex items-center justify-end mt-4">
                 <p><a href="{{ route('login') }}" class="pt-2 mr-5 underline">{{ __('Already registered?') }}</a></p>
-                <x-form.submit>{{ __('Register') }}</x-form.submit>
+                <x-button>{{ __('Register') }}</x-button>
             </div>
 
         </x-form>
 
     </x-auth-card>
-</x-guest-layout>
+</x-layouts.guest>

@@ -5,7 +5,7 @@
 
         <div>
             @can('add_roles')
-                <livewire:roles::admin.create/>
+                <livewire:roles::admin.create @added="$refresh"/>
             @endcan
         </div>
 
@@ -15,9 +15,12 @@
 
     <div class="card">
 
-        <div class="alert alert-info py-2 px-4 my-5 rounded-md">
-            {{ __('By default only Admin have full access, additional roles will need permissions applying to them by editing the roles below.') }}
-        </div>
+        <x-alert>
+            <x-heroicon-c-information-circle class="size-6 sm:size-5 mr-2 sm:mr-1.5 flex-shrink-0" />
+            <span class="flex-1">
+                {{ __("By default, only admin roles have full access. Additional roles will need permissions applied by editing the roles below.") }}
+            </span>
+        </x-alert>
 
         <div class="grid sm:grid-cols-1 md:grid-cols-4 gap-4">
 
@@ -42,39 +45,46 @@
         @foreach($this->roles() as $role)
             <tr>
                 <td>{{ $role->label }}</td>
-                    <td>
-                        <div class="flex space-x-2">
+                <td>
+                    <div class="flex space-x-2">
 
-                            @can('edit_roles')
-                                <a href="{{ route('admin.settings.roles.edit', ['role' => $role->id]) }}">{{ __('Edit') }}</a>
-                            @endcan
+                        @can('edit_roles')
+                            <x-a href="{{ route('admin.settings.roles.edit', ['role' => $role->id]) }}">{{ __('Edit') }}</x-a>
+                        @endcan
 
-                            @if ($role->name !== 'admin')
-                                @can('delete_roles')
+                        @if ($role->name !== 'admin')
+                            @can('delete_roles')
+                                <div x-data="{ confirmation: '' }">
                                     <x-modal>
                                         <x-slot name="trigger">
-                                            <a class="link" href="#" @click="on = true">{{ __('Delete') }}</a>
+                                            <a href="#" @click="on = true">{{ __('Delete') }}</a>
                                         </x-slot>
 
-                                        <x-slot name="modalTitle">{{ __('Confirm Delete') }}</x-slot>
-
-                                        <x-slot name="content">
-                                            <div class="text-center">
-                                                {{ __('Are you sure you want to role:') }} <b>{{ $role->name }}</b>
+                                        <x-slot name="modalTitle">
+                                            <div class="pt-5">
+                                                {{ __('Are you sure you want to delete') }}: <b>{{ $role->label }}</b>
                                             </div>
                                         </x-slot>
 
+                                        <x-slot name="content">
+                                            <label class="flex flex-col gap-2">
+                                                <div>{{ __('Type') }} <span class="font-bold">"{{ $role->label }}"</span> {{ __('to confirm') }}</div>
+                                                <input autofocus x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg">
+                                            </label>
+                                        </x-slot>
+
                                         <x-slot name="footer">
-                                            <button class="btn" @click="on = false">{{ __('Cancel') }}</button>
-                                            <button class="btn btn-red" wire:click="deleteRole('{{ $role->id }}')">{{ __('Delete Role') }}</button>
+                                            <x-button variant="gray" @click="on = false">{{ __('Cancel') }}</x-button>
+                                            <x-button variant="red" x-bind:disabled="confirmation !== '{{ $role->label }}'" wire:click="deleteRole('{{ $role->id }}')">{{ __('Delete Role') }}</x-button>
                                         </x-slot>
                                     </x-modal>
-                                @endcan
-                            @endif
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
+                                    </div>
+                            @endcan
+                        @endif
+                    </div>
+                </td>
+            </tr>
+        @endforeach
             </tbody>
         </table>
 

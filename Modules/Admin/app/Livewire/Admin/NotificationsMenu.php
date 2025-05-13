@@ -11,6 +11,9 @@ use Modules\Admin\Models\Notification;
 
 class NotificationsMenu extends Component
 {
+    /**
+     * @var Collection<int, Notification>
+     */
     public Collection $notifications;
 
     public int $unseenCount = 0;

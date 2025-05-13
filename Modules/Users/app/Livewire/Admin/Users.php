@@ -55,9 +55,12 @@ class Users extends Component
         return view('users::livewire.admin.index');
     }
 
+    /**
+     * @return Builder<User>
+     */
     public function builder(): Builder
     {
-        return User::with('roles')->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
+        return User::with(['roles', 'invite'])->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
     }
 
     public function sortBy(string $field): void
@@ -69,6 +72,9 @@ class Users extends Component
         $this->sortField = $field;
     }
 
+    /**
+     * @return LengthAwarePaginator<int, User>
+     */
     public function users(): LengthAwarePaginator
     {
         $query = $this->builder();
@@ -114,7 +120,7 @@ class Users extends Component
         $user = User::findOrFail($id);
         Mail::send(new SendInviteMail($user));
 
-        $user->invited_at = now()->toDateTimeString();
+        $user->invited_at = now();
         $user->save();
 
         $this->sentEmail = true;

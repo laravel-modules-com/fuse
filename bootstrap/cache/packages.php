@@ -1,20 +1,23 @@
 <?php return array (
-  'intervention/image' => 
+  'barryvdh/laravel-ide-helper' => 
   array (
     'providers' => 
     array (
-      0 => 'Intervention\\Image\\ImageServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Image' => 'Intervention\\Image\\Facades\\Image',
+      0 => 'Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider',
     ),
   ),
-  'kkomelin/laravel-translatable-string-exporter' => 
+  'blade-ui-kit/blade-heroicons' => 
   array (
     'providers' => 
     array (
-      0 => 'KKomelin\\TranslatableStringExporter\\Providers\\ExporterServiceProvider',
+      0 => 'BladeUI\\Heroicons\\BladeHeroiconsServiceProvider',
+    ),
+  ),
+  'blade-ui-kit/blade-icons' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BladeUI\\Icons\\BladeIconsServiceProvider',
     ),
   ),
   'laracasts/flash' => 
@@ -26,6 +29,13 @@
     'providers' => 
     array (
       0 => 'Laracasts\\Flash\\FlashServiceProvider',
+    ),
+  ),
+  'laravel/pail' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Pail\\PailServiceProvider',
     ),
   ),
   'laravel/sail' => 
@@ -47,6 +57,17 @@
     'providers' => 
     array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    ),
+  ),
+  'laravolt/avatar' => 
+  array (
+    'aliases' => 
+    array (
+      'Avatar' => 'Laravolt\\Avatar\\Facade',
+    ),
+    'providers' => 
+    array (
+      0 => 'Laravolt\\Avatar\\ServiceProvider',
     ),
   ),
   'livewire/livewire' => 
@@ -90,13 +111,13 @@
   ),
   'nwidart/laravel-modules' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Nwidart\\Modules\\LaravelModulesServiceProvider',
-    ),
     'aliases' => 
     array (
       'Module' => 'Nwidart\\Modules\\Facades\\Module',
+    ),
+    'providers' => 
+    array (
+      0 => 'Nwidart\\Modules\\LaravelModulesServiceProvider',
     ),
   ),
   'pestphp/pest-plugin-laravel' => 
@@ -104,17 +125,6 @@
     'providers' => 
     array (
       0 => 'Pest\\Laravel\\PestServiceProvider',
-    ),
-  ),
-  'spatie/laravel-ignition' => 
-  array (
-    'aliases' => 
-    array (
-      'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
-    ),
-    'providers' => 
-    array (
-      0 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
     ),
   ),
   'spatie/laravel-permission' => 

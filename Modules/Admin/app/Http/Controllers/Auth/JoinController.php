@@ -44,9 +44,9 @@ class JoinController extends Controller
         $user->password = Hash::make($request->input('newPassword'));
         $user->is_active = true;
         $user->invite_token = null;
-        $user->last_logged_in_at = now()->toDateTimeString();
-        $user->joined_at = now()->toDateTimeString();
-        $user->email_verified_at = now()->toDateTimeString();
+        $user->last_logged_in_at = now();
+        $user->joined_at = now();
+        $user->email_verified_at = now();
         $user->save();
 
         AuditTrail::create([

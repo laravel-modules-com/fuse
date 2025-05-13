@@ -32,11 +32,7 @@
         {{ $required }}
         {{ $attributes->merge([
             'class' => implode(' ', [
-                'dark:bg-gray-500 dark:text-gray-200 p-1 w-full rounded-md
-                py-2 px-3
-                sm:text-sm
-                border
-                focus:outline-none focus:border-blue-500',
+                'block w-full bg-white dark:bg-gray-500 dark:text-gray-200 dark:placeholder-gray-200 border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm',
                 $errors->has($name) ? 'border-red-500' : 'border-gray-300',
             ])
         ]) }}
@@ -52,13 +48,13 @@
            <option value=''>{{ $placeholder }}</option>
         @endif
         @if (count($data) > 0)
-            @foreach($data as $key => $value)
-                <option value='{{ $key }}' @if ($key == $slot) selected @endif>{{ $value }}</option>
+            @foreach($data as $item)
+                <option value="{{ $item['id'] }}">{{ $item['value'] }}</option>
             @endforeach
         @endif
         {{ $slot }}
     </select>
     @error($name)
-        <p class="text-red-500 dark:text-red-300" aria-live="assertive">{{ $message }}</p>
+        <p class="error" aria-live="assertive">{{ $message }}</p>
     @enderror
 </div>

@@ -7,46 +7,38 @@ namespace Modules\Admin\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
+use Illuminate\Http\UploadedFile;
+use Modules\Admin\Actions\Images\StoreUploadedImageAction;
 
 class UploadController extends Controller
 {
-    public function index(Request $request): JsonResponse
+    public function __invoke(Request $request): JsonResponse
     {
         $request->validate([
             'upload' => [
                 'required',
+                'file',
                 'image',
                 'mimes:jpeg,png,jpg,gif',
-                'max:2048', // Adjust the allowed image file types and maximum size as needed
             ],
         ]);
 
         if ($request->hasFile('upload')) {
 
             $file = $request->file('upload');
-            $originalName = $file->getClientOriginalName();
-            $extension = $file->getClientOriginalExtension();
 
-            $name = Str::slug(date('Y-m-d-h-i-s').'-'.pathinfo($originalName, PATHINFO_FILENAME));
-            $image = Image::make($file);
+            if (! $file instanceof UploadedFile) {
+                return response()->json(['error' => 'Invalid upload'], 400);
+            }
 
-            $imageString = $image->stream()->__toString();
-            $name = "$name.$extension";
-
-            Storage::disk('images')
-                ->put('posts/'.$name, $imageString);
+            /** @var UploadedFile $file */
+            $image = (new StoreUploadedImageAction)($file, 'images', width: 400);
 
             return response()->json([
-                'url' => "/images/posts/$name",
+                'url' => storage_url($image),
             ]);
-
         }
 
-        return response()->json([
-            'error' => 'No file was uploaded',
-        ], 400);
+        return response()->json(['error' => 'No file uploaded'], 422);
     }
 }

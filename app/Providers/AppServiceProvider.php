@@ -36,11 +36,8 @@ class AppServiceProvider extends ServiceProvider
 
     private function configureAuth(): void
     {
-        Gate::before(function (?User $user) {
-            if ($user === null) {
-                return null;
-            }
-
+        Gate::before(function (User $user) {
+            /** @var User $user */
             return $user->hasRole('admin') ? true : null;
         });
     }
@@ -85,7 +82,7 @@ class AppServiceProvider extends ServiceProvider
 
     private function configureViews(): void
     {
-        view()->composer('layouts.app', function () {
+        view()->composer('components.layouts.app', function () {
             if (Auth::check()) {
                 $settings = cache()->remember('settings', 3600, fn () => Setting::all());
                 foreach ($settings as $setting) {

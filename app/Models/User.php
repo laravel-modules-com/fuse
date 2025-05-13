@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\Traits\HasUuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,17 +13,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Modules\Admin\Models\Traits\HasUuid;
-use Modules\Roles\Models\Role;
 use Modules\Users\Database\Factories\UserFactory;
 use Spatie\Permission\Traits\HasRoles;
 
-/**
- * @method bool assignRole(string|array|Role ...$roles)
- * @method bool hasRole(string|array|Role $roles)
- * @method bool can(string $permission, mixed $arguments = null)
- * @method bool cannot(string $permission, mixed $arguments = null)
- */
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
@@ -87,6 +80,8 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Scope a query to only include active users.
+     *
      * @param  Builder<User>  $query
      * @return Builder<User>
      */

@@ -11,6 +11,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Modules\Admin\Actions\GetInitialsAction;
 use Modules\Roles\Models\Role;
 use Modules\Users\Mail\SendInviteMail;
 
@@ -71,7 +72,7 @@ class Invite extends Component
         return view('users::livewire.admin.invite', compact('roles'));
     }
 
-    public function store(): void
+    public function store(GetInitialsAction $getInitialsAction): void
     {
         $this->validate();
 
@@ -87,7 +88,7 @@ class Invite extends Component
         ]);
 
         // generate image
-        $name = get_initials($user->name);
+        $name = $getInitialsAction($user->name);
         $id = $user->id.'.png';
         $path = 'users/';
         $imagePath = create_avatar($name, $id, $path);

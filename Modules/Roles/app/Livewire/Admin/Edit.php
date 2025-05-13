@@ -56,6 +56,7 @@ class Edit extends Component
 
         if (isset($this->role->permissions)) {
             foreach ($this->role->permissions as $perm) {
+                /** @var Permission $perm */
                 $this->permissions[] = $perm->name;
             }
         }

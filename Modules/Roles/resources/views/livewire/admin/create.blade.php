@@ -1,19 +1,21 @@
-<div>
-    <x-modal>
-        <x-slot name="trigger">
-            <button class="btn btn-primary rounded-md" @click="on = true">{{ __('Add Role') }}</button>
-        </x-slot>
+<x-modal>
+    <x-slot name="trigger">
+        <x-button @click="on = true">{{ __('Add Role') }}</x-button>
+    </x-slot>
 
-        <x-slot name="modalTitle">{{ __('Add Role') }}</x-slot>
+    <x-slot name="modalTitle">{{ __('Add Role') }}</x-slot>
 
-        <x-slot name="content">
-            <x-form.input wire:model.live="role" :label="__('Role')" name="role" required />
-        </x-slot>
+    <x-slot name="content">
 
-        <x-slot name="footer">
-            <button class="btn" @click="on = false">{{ __('Cancel') }}</button>
-            <button class="btn btn-primary" wire:click="store">{{ __('Create Role') }}</button>
-        </x-slot>
+        @include('errors.success')
 
-    </x-modal>
-</div>
+        <x-form.input autofocus wire:model="label" :label="__('Role')" name="label" required />
+
+    </x-slot>
+
+    <x-slot name="footer">
+        <x-button variant="gray" @click="on = false">{{ __('Close') }}</x-button>
+        <x-button wire:click="store">{{ __('Create Role') }}</x-button>
+    </x-slot>
+
+</x-modal>

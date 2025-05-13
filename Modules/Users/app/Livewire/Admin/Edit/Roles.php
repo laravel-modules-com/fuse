@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Users\Livewire\Admin\Edit;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 use Modules\Roles\Models\Role;
@@ -14,12 +15,18 @@ class Roles extends Component
     public User $user;
 
     /**
+     * @var Collection<int, Role>
+     */
+    public Collection $roles;
+
+    /**
      * @var array<int>
      */
     public array $roleSelections = [];
 
     public function mount(): void
     {
+        $this->roles = Role::orderby('name')->get();
         $this->roleSelections = $this->user->roles->pluck('id')->toArray();
     }
 
@@ -27,7 +34,7 @@ class Roles extends Component
     {
         $roles = Role::orderby('name')->get();
 
-        return view('users::livewire.admin.edit.roles', compact('roles'))->layout('layouts.app');
+        return view('users::livewire.admin.edit.roles', compact('roles'));
     }
 
     public function update(): bool
@@ -35,8 +42,8 @@ class Roles extends Component
         $role = Role::where('name', 'admin')
             ->firstOrFail();
 
-        // if admin role is not in array
-        if (! in_array(needle: $role->id, haystack: $this->roleSelections, strict: true)) {
+        // if an admin role is not in array
+        if (! in_array((int) $role->id, $this->roleSelections, true)) {
             $adminRolesCount = User::role('admin')->count();
 
             // when there is only 1 admin role alert user and stop
@@ -61,7 +68,7 @@ class Roles extends Component
     protected function syncRoles(): void
     {
         // @phpstan-ignore-next-line
-        $rolesWithTenant = collect($this->roleSelections)->map(function (string $roleId) {
+        $roles = collect($this->roleSelections)->map(function (string $roleId) {
             return [
                 'role_id' => $roleId,
                 'model_type' => User::class,
@@ -69,12 +76,12 @@ class Roles extends Component
             ];
         })->toArray();
 
-        $this->user->roles()->sync($rolesWithTenant);
+        $this->user->roles()->sync($roles);
 
         add_user_log([
             'title' => 'updated '.$this->user->name."'s roles",
             'reference_id' => $this->user->id,
-            'link' => route('admin.users.edit', ['user' => $this->user->id]),
+            'link' => route('users::admin.edit', ['user' => $this->user->id]),
             'section' => 'Users',
             'type' => 'Update',
         ]);

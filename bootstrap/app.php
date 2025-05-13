@@ -7,7 +7,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
-use Illuminate\Http\Request;
+use Illuminate\Session\TokenMismatchException;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 use Spatie\Permission\Middleware\RoleMiddleware;
 use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;
@@ -38,7 +38,6 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->dontTruncateRequestExceptions();
-        $exceptions->shouldRenderJsonWhen(function (Request $request) {
-            return $request->is('api/*') || $request->expectsJson();
-        });
+
+        $exceptions->render(fn (TokenMismatchException $e) => redirect()->back()->withInput()->with('error', __('The page has expired due to inactivity. Please refresh and try again.')));
     })->create();

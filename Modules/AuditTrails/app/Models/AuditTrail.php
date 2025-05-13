@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\AuditTrails\Models;
 
+use App\Models\Traits\HasUuid;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Admin\Models\Traits\HasUuid;
 use Modules\AuditTrails\Database\Factories\AuditTrailsFactory;
 
 class AuditTrail extends Model
 {
+    /** @use HasFactory<AuditTrailsFactory> */
     use HasFactory;
+
     use HasUuid;
     use SoftDeletes;
 
@@ -32,8 +34,12 @@ class AuditTrail extends Model
         return AuditTrailsFactory::new();
     }
 
+    /**
+     * @return BelongsTo<User, AuditTrail>
+     */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        /** @var BelongsTo<User, AuditTrail> */
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
