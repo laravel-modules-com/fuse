@@ -109,9 +109,9 @@
               <x-heroicon-o-sun id="theme-toggle-light" class="size-5 -mt-1 text-yellow-500" />
               <x-heroicon-o-moon id="theme-toggle-dark" class="size-5 -mt-1 text-gray-900 dark:text-white" />
           </button>
-          <livewire:admin.notifications-menu/>
-          <livewire:admin.help-menu/>
-          <livewire:admin.users.user-menu/>
+          <livewire:admin::admin.notifications-menu/>
+          <livewire:admin::admin.help-menu/>
+          <livewire:users::admin.user-menu/>
       </div>
     </div>
   </header>
