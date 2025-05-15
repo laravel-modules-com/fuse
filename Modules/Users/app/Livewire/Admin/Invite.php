@@ -101,7 +101,7 @@ class Invite extends Component
             $user->assignRole($role);
         }
 
-        Mail::send(new SendInviteMail($user));
+        Mail::queue((new SendInviteMail($user))->onQueue('notifications'));
 
         add_user_log([
             'title' => 'invited '.$user->name,

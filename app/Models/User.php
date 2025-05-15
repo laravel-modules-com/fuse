@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Modules\Admin\Notifications\ResetPasswordNotification;
+use Modules\Admin\Notifications\VerifyEmailNotification;
 use Modules\Users\Database\Factories\UserFactory;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -97,5 +99,23 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         /** @var HasOne<User, User> */
         return $this->hasOne(User::class, 'id', 'invited_by');
+    }
+
+    /**
+     * Send the email verification notification.
+     */
+    public function sendEmailVerificationNotification(): void
+    {
+        $this->notify((new VerifyEmailNotification));
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     */
+    public function sendPasswordResetNotification($token): void
+    {
+        $this->notify((new ResetPasswordNotification($token)));
     }
 }

@@ -186,5 +186,7 @@ test('can resend invite', function () {
     Livewire::test(Users::class)
         ->call('resendInvite', $user->id);
 
-    Mail::assertSent(SendInviteMail::class);
+    Mail::assertQueued(SendInviteMail::class, function ($mail) {
+        return $mail->onQueue('notifications');
+    });
 });

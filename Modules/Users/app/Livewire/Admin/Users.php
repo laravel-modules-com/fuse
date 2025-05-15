@@ -118,7 +118,7 @@ class Users extends Component
     public function resendInvite(string $id): void
     {
         $user = User::findOrFail($id);
-        Mail::send(new SendInviteMail($user));
+        Mail::queue((new SendInviteMail($user))->onQueue('notifications'));
 
         $user->invited_at = now();
         $user->save();

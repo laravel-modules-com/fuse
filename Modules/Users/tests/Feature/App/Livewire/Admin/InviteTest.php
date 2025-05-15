@@ -78,7 +78,9 @@ test('send invite email on invite', function () {
         ->set('rolesSelected', ['editor'])
         ->call('store');
 
-    Mail::assertSent(SendInviteMail::class);
+    Mail::assertQueued(SendInviteMail::class, function ($mail) {
+        return $mail->onQueue('notifications');
+    });
 });
 
 test('name is required', function () {
