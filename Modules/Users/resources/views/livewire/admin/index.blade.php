@@ -87,7 +87,7 @@
                     </td>
                     <td>
                         @foreach($user->roles as $role)
-                            <x-badge variant="blue">{{ $role->label }}</x-badge>
+                            <x-badge variant="gray">{{ $role->label }}</x-badge>
                         @endforeach
                     </td>
                     <td>

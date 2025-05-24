@@ -6,19 +6,15 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^6.3.0",
         "@tailwindcss/vite": "^4.0.7",
+        "@alpinejs/ui": "^3.14.9",
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.4",
         "concurrently": "^9.0.1",
-        "filepond": "^4.30.4",
         "flatpickr": "^4.6.13",
         "laravel-vite-plugin": "^1.0",
         "tailwindcss": "^4.0.7",
         "vite": "^6.0",
         "prismjs": "^1.23.0"
-    },
-    "dependencies": {
-        "@alpinejs/ui": "^3.14.9"
     }
 }

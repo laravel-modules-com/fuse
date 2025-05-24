@@ -13,7 +13,7 @@ class ActiveUser
     {
         // if user is not active log the user out
         if (! auth()->user()->is_active) {
-            flash('Your account has been deactivated. You cannot login.')->warning();
+            flash(__('Your account has been deactivated. You cannot login.'))->warning();
             auth()->logout();
 
             return redirect(route('login'));

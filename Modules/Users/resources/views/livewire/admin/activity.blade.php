@@ -1,8 +1,8 @@
 <div>
     <div class="card">
-        <h1>{{ __('Activity') }}</h1>
+        <h1 class="mb-5">{{ __('Activity') }}</h1>
 
-        <div class="mb-5 grid sm:grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-4">
 
             <div class="col-span-2">
                 <x-form.input type="search" id="title" name="title" wire:model.live="title" label="none" :placeholder="__('Search Actions')" />
