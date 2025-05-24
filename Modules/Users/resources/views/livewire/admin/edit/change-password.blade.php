@@ -7,7 +7,7 @@
         </x-slot>
         <x-slot name="right">
 
-            <div class="card">
+            <div id="changepassword" class="card">
                 <x-form wire:submit="update" method="put">
 
                     <div class="alert alert-primary">

@@ -20,7 +20,7 @@
             </x-slot>
             <x-slot name="right">
 
-                <div class="card">
+                <div id="2fa" class="card">
 
                     @if (auth()->user()->two_fa_active === true && auth()->user()->two_fa_secret_key !='')
                         <p>{{ __('Your 2-Factor Authentication is in place, to remove this click the button below.') }}</p>

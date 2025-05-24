@@ -6,7 +6,7 @@
         </x-slot>
         <x-slot name="right">
 
-            <div class="card">
+            <div id="roles" class="card">
                 <x-form wire:submit="update" method="put">
 
                     @foreach($roles as $role)

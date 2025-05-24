@@ -33,7 +33,7 @@
 
     <div class="flex h-16 w-full flex-none items-center justify-between px-4 lg:justify-center dark:bg-gray-600/25">
 
-      <x-a href="{{ route('dashboard') }}" class="group inline-flex items-center gap-2 text-lg font-bold tracking-wide text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300">
+      <x-a href="{{ route('dashboard') }}">
         <span>{{ config('app.name') }}</span>
       </x-a>
 
