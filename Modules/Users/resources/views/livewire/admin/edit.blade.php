@@ -10,12 +10,12 @@
 
         <div class="md:w-1/5 p-5 md:sticky top-0 h-full">
             <ul class="md:fixed overflow-x-auto space-y-2">
-                <li><a class="text-primary" href="#profile">Profile</a></li>
-                <li><a class="text-primary" href="#changepassword">Change Password</a></li>
-                <li><a class="text-primary" href="#2fa">2FA</a></li>
+                <li><x-a navigate="off" href="#profile">Profile</x-a></li>
+                <li><x-a navigate="off" href="#changepassword">Change Password</x-a></li>
+                <li><x-a navigate="off" href="#2fa">2FA</x-a></li>
                 @can('edit_roles')
-                    <li><a class="text-primary" href="#adminsettings">Admin Settings</a></li>
-                    <li><a class="text-primary" href="#roles">Roles</a></li>
+                    <li><x-a navigate="off" href="#adminsettings">Admin Settings</x-a></li>
+                    <li><x-a navigate="off" href="#roles">Roles</x-a></li>
                 @endcan
             </ul>
         </div>

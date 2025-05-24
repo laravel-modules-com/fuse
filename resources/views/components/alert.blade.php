@@ -3,7 +3,7 @@
 
     $class .= " " . match($attributes->get("variant")) {
         default => "bg-primary text-white dark:bg-primary-dark dark:text-gray-200",
-        'gray' => "bg-gray-500 text-gray-200 dark:bg-gray-800 dark:text-gray-300",
+        'gray' => "bg-gray-500 text-gray-200 dark:bg-gray-500 dark:text-gray-200",
         'red', 'danger' => "bg-red-500 text-red-200 dark:bg-red-700 dark:text-red-100",
         'yellow' => "bg-yellow-500 text-yellow-200 dark:bg-yellow-600 dark:text-yellow-100",
         'green', 'success' => "bg-green-500 text-green-200 dark:bg-green-700 dark:text-green-100",

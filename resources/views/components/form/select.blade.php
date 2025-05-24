@@ -24,7 +24,7 @@
 
 <div class="mb-5">
     @if ($label !='none')
-        <label for='{{ $name }}' class='block mb-2 font-bold text-sm mb-2 text-gray-600 dark:text-gray-200'>{{ $label }} @if ($required != '') <span aria-hidden="true" class="error">*</span>@endif</label>
+        <label for='{{ $name }}' class='block mb-2 font-bold text-sm text-gray-600 dark:text-gray-200'>{{ $label }} @if ($required != '') <span aria-hidden="true" class="error">*</span>@endif</label>
     @endif
     <select
         name='{{ $name }}'
@@ -32,7 +32,7 @@
         {{ $required }}
         {{ $attributes->merge([
             'class' => implode(' ', [
-                'block w-full bg-white dark:bg-gray-500 dark:text-gray-200 dark:placeholder-gray-200 border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm',
+                'block w-full bg-white dark:bg-gray-500 dark:text-gray-200 dark:placeholder-gray-200 border border-gray-300 dark:border-gray-500 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm',
                 $errors->has($name) ? 'border-red-500' : 'border-gray-300',
             ])
         ]) }}

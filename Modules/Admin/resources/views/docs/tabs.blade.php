@@ -1,10 +1,10 @@
 <div class="card">
-    <h2><a name="tabs">Tabs</a></h2>
+    <h2><a name="tabs">{{ __('Tabs') }}</a></h2>
 
     <x-tabs name="preview">
         <x-tabs.header>
-            <x-tabs.link name="preview">Preview</x-tabs.link>
-            <x-tabs.link name="code">Code</x-tabs.link>
+            <x-tabs.link name="preview">{{ __('Preview') }}</x-tabs.link>
+            <x-tabs.link name="code">{{ __('Code') }}</x-tabs.link>
         </x-tabs.header>
 
         <x-tabs.div name="preview">
@@ -12,21 +12,21 @@
             <x-tabs name="company">
 
                 <x-tabs.header>
-                    <x-tabs.link name="details">Details</x-tabs.link>
-                    <x-tabs.link name="company">Company</x-tabs.link>
-                    <x-tabs.link name="team">Team</x-tabs.link>
+                    <x-tabs.link name="details">{{ __('Details') }}</x-tabs.link>
+                    <x-tabs.link name="company">{{ __('Company') }}</x-tabs.link>
+                    <x-tabs.link name="team">{{ __('Team') }}</x-tabs.link>
                 </x-tabs.header>
 
                 <x-tabs.div name="details">
-                    <p>Details</p>
+                    <p>{{ __('Details') }}</p>
                 </x-tabs.div>
 
                 <x-tabs.div name="company">
-                    <p>Company</p>
+                    <p>{{ __('Company') }}</p>
                 </x-tabs.div>
 
                 <x-tabs.div name="team">
-                    <p>Team</p>
+                    <p>{{ __('Team') }}</p>
                 </x-tabs.div>
 
             </x-tabs>

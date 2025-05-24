@@ -1,10 +1,10 @@
 <div class="card">
-    <h2><a name="forms">Forms</a></h2>
+    <h2><a name="forms">{{ __('Forms') }}</a></h2>
 
     <x-tabs name="preview">
         <x-tabs.header>
-            <x-tabs.link name="preview">Preview</x-tabs.link>
-            <x-tabs.link name="code">Code</x-tabs.link>
+            <x-tabs.link name="preview">{{ __('Preview') }}</x-tabs.link>
+            <x-tabs.link name="code">{{ __('Code') }}</x-tabs.link>
         </x-tabs.header>
 
         <x-tabs.div name="preview">
@@ -14,23 +14,23 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
 
-                    <x-form.input name="name">{{ old('name', 'Dave') }}</x-form.input>
+                    <x-form.input name="input">Dave</x-form.input>
 
-                    <x-form.select name="gender">
-                        <x-form.select-option value="">Select</x-form.select-option>
-                        <x-form.select-option value="male" selected="male">Male</x-form.select-option>
-                        <x-form.select-option value="female">Female</x-form.select-option>
+                    <x-form.select name="select">
+                        <x-form.select-option value="">{{ __('Select') }}</x-form.select-option>
+                        <x-form.select-option value="male" selected="male">{{ __('Male') }}</x-form.select-option>
+                        <x-form.select-option value="female">{{ __('Female') }}</x-form.select-option>
                     </x-form.select>
 
-                    <x-form.checkbox name="checkbox" label="Agree to terms" checked="true" />
+                    <x-form.checkbox name="checkbox" :label=__('Checkbox) checked="true" />
 
                 </div>
 
                 <div>
 
-                    <x-form.input name="image" type="file"></x-form.input>
+                    <x-form.input name="File" type="file"></x-form.input>
 
-                    <x-form.group label="T-shirt Size">
+                    <x-form.group label="Radio">
                         <x-form.radio name="size" id="s1" label="Small" value="sm"></x-form.radio>
                         <x-form.radio name="size" id="s2" label="Medium" value="md"></x-form.radio>
                         <x-form.radio name="size" id="s3" label="Large" value="lg"></x-form.radio>
@@ -62,7 +62,9 @@
 
             <hr class="my-5" />
 
-            <x-form.textarea name="comments"></x-form.textarea>
+            <x-form.textarea name="textarea" />
+
+            <x-form.ckeditor name="ckeditor" label="Ckeditor" />
 
             <x-button>Submit</x-button>
 
@@ -71,28 +73,28 @@
         </x-tabs.div>
 
         <x-tabs.div name="code">
-            <pre><code class="language-php">@php echo htmlentities('<x-form method="get">
+<pre><code class="language-php">@php echo htmlentities('<x-form method="get">
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
 
-        <x-form.input name="name">{{ old(\'name\', \'Dave\') }}</x-form.input>
+        <x-form.input name="input">Dave</x-form.input>
 
-        <x-form.select name="gender">
-            <x-form.select-option value="">Select</x-form.select-option>
-            <x-form.select-option value="male" selected="male">Male</x-form.select-option>
-            <x-form.select-option value="female">Female</x-form.select-option>
+        <x-form.select name="select">
+            <x-form.select-option value="">{{ __(\'Select\') }}</x-form.select-option>
+            <x-form.select-option value="male" selected="male">{{ __(\'Male\') }}</x-form.select-option>
+            <x-form.select-option value="female">{{ __(\'Female\') }}</x-form.select-option>
         </x-form.select>
 
-        <x-form.checkbox name="checkbox" label="Agree to terms" checked="true" />
+        <x-form.checkbox name="checkbox" :label=__(\'Checkbox\') checked="true" />
 
     </div>
 
     <div>
 
-        <x-form.input name="image" type="file"></x-form.input>
+        <x-form.input name="File" type="file"></x-form.input>
 
-        <x-form.group label="T-shirt Size">
+        <x-form.group label="Radio">
             <x-form.radio name="size" id="s1" label="Small" value="sm"></x-form.radio>
             <x-form.radio name="size" id="s2" label="Medium" value="md"></x-form.radio>
             <x-form.radio name="size" id="s3" label="Large" value="lg"></x-form.radio>
@@ -124,7 +126,9 @@
 
 <hr class="my-5" />
 
-<x-form.textarea name="comments"></x-form.textarea>
+<x-form.textarea name="textarea" />
+
+<x-form.ckeditor name="ckeditor" label="Ckeditor" />
 
 <x-button>Submit</x-button>
 

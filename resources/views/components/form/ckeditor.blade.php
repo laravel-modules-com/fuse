@@ -1,11 +1,10 @@
-@push('scripts')
-    <script src="{{ url('js/ckeditor5.js') }}"></script>
-@endpush
+<script src="{{ url('js/ckeditor5.js') }}"></script>
 
 @props([
     'name' => '',
     'label' => '',
-    'required' => false
+    'required' => false,
+    'livewire' => false,
 ])
 
 @if ($label == '')
@@ -20,9 +19,9 @@
         $label = ucwords(strtolower($label));
     @endphp
 @endif
-<div wire:ignore class="mt-5">
+<div wire:ignore class="my-5">
     @if ($label !='none')
-        <label for="{{ $name }}" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-200">{{ $label }} @if ($required != '') <span aria-hidden="true" class="error">*</span>@endif</label>
+        <x-form.label :$label :$required :$name />
     @endif
     <textarea
         x-data
@@ -34,10 +33,12 @@
                 }
                 })
                 .then(editor => {
-                    editor.model.document.on('change:data', () => {
-                    @this.set('{{ $name }}', editor.getData());
-                    })
-               })
+                    @if($livewire)
+                        editor.model.document.on('change:data', () => {
+                            @this.set('{{ $name }}', editor.getData());
+                        });
+                    @endif
+                })
                 .catch(error => {
                     console.error(error);
                 });
@@ -49,5 +50,5 @@
     </textarea>
 </div>
 @error($name)
-    <p class="error" aria-live="assertive">{{ $message }}</p>
+    <p class="text-red-500 dark:text-red-300" aria-live="assertive">{{ $message }}</p>
 @enderror

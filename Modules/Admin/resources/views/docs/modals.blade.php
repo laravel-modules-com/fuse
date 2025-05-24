@@ -1,22 +1,22 @@
 <div class="card">
-    <h2><a name="modals">Modals</a></h2>
+    <h2><a name="modals">{{ __('Modals') }}</a></h2>
 
     <x-tabs name="preview">
         <x-tabs.header>
-            <x-tabs.link name="preview">Preview</x-tabs.link>
-            <x-tabs.link name="code">Code</x-tabs.link>
+            <x-tabs.link name="preview">{{ __('Preview') }}</x-tabs.link>
+            <x-tabs.link name="code">{{ __('Code') }}</x-tabs.link>
         </x-tabs.header>
 
         <x-tabs.div name="preview">
             <x-modal>
                 <x-slot name="trigger">
-                    <x-button @click="on = true">Open Modal</x-button>
+                    <x-button @click="on = true">{{ __('Open Modal') }}</x-button>
                 </x-slot>
 
-                <x-slot name="modalTitle">Title</x-slot>
+                <x-slot name="modalTitle">{{ __('Title') }}</x-slot>
 
                 <x-slot name="content">
-                    <p>Content</p>
+                    <p>{{ __('Content') }}</p>
                 </x-slot>
 
                 <x-slot name="footer">

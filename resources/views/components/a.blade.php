@@ -7,9 +7,9 @@ $class = "inline-flex items-center font-medium ease-in-out disabled:opacity-50
 disabled:cursor-not-allowed disabled:opacity-50 rounded-md cursor-pointer ";
 
 $class .= " " . match($attributes->get("variant")) {
-    default => "text-primary underline-offset-4 hover:underline dark:text-primary-light",
+    default => "text-primary dark:text-sky-300 underline-offset-4 hover:underline",
     'primary' => "bg-primary text-white hover:bg-primary/90 shadow-md dark:bg-primary-dark dark:text-gray-200 dark:hover:bg-primary-dark/80",
-    'gray' => "bg-gray-200 text-gray-700 hover:bg-gray-300/90 shadow-md dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700/90",
+    'gray' => "bg-gray-200 text-gray-700 hover:bg-gray-300/90 shadow-md dark:bg-gray-500 dark:text-gray-300 dark:hover:bg-gray-500/90",
     'red' => "bg-red-500 text-red-200 hover:bg-red-500/90 shadow-md dark:bg-red-700 dark:text-red-100 dark:hover:bg-red-600/90",
     'yellow' => "bg-yellow-500 text-yellow-200 hover:bg-yellow-500/90 shadow-md dark:bg-yellow-600 dark:text-yellow-100 dark:hover:bg-yellow-500/90",
     'green' => "bg-green-500 text-green-200 hover:bg-green-500/90 shadow-md dark:bg-green-700 dark:text-green-100 dark:hover:bg-green-600/90",

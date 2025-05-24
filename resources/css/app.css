@@ -31,10 +31,6 @@ p {
     @apply py-2 text-gray-600 dark:text-gray-300;
 }
 
-p a {
-    @apply text-sky-600 dark:text-sky-300;
-}
-
 hr {
     @apply border-t border-gray-300;
 }

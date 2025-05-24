@@ -1,18 +1,18 @@
 <div class="card">
-    <h2><a name="dropdown">Dropdown</a></h2>
+    <h2><a name="dropdown">{{ __('Dropdown') }}</a></h2>
 
     <x-tabs name="preview">
         <x-tabs.header>
-            <x-tabs.link name="preview">Preview</x-tabs.link>
-            <x-tabs.link name="code">Code</x-tabs.link>
+            <x-tabs.link name="preview">{{ __('Preview') }}'</x-tabs.link>
+            <x-tabs.link name="code">{{ __('Code') }}</x-tabs.link>
         </x-tabs.header>
 
         <x-tabs.div name="preview">
 
             <div class="w-40">
             <x-dropdown class="mt-5" label="Action">
-                <x-dropdown.link href="#">Edit</x-dropdown.link>
-                <x-dropdown.link href="#">Delete</x-dropdown.link>
+                <x-dropdown.link href="#">{{ __('Edit') }}</x-dropdown.link>
+                <x-dropdown.link href="#">{{ __('Delete') }}</x-dropdown.link>
             </x-dropdown>
             </div>
 
