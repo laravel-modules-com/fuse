@@ -57,7 +57,7 @@
                                 <div x-data="{ confirmation: '' }">
                                     <x-modal>
                                         <x-slot name="trigger">
-                                            <a href="#" @click="on = true">{{ __('Delete') }}</a>
+                                            <x-a navigate="off" @click="on = true">{{ __('Delete') }}</x-a>
                                         </x-slot>
 
                                         <x-slot name="modalTitle">

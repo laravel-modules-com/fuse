@@ -4,7 +4,7 @@
             <h3>{{ __('Admin Settings') }}</h3>
         </x-slot>
         <x-slot name="right">
-            <div class="card">
+            <div id="adminsettings" class="card">
 
                 <x-form wire:submit="update" method="put">
 

@@ -7,6 +7,10 @@
   --color-secondary: #F6F6F7;
 }
 
+html {
+    scroll-padding-top: theme('spacing.24'); /* example if your header is h-24 */
+}
+
 h1 {
     @apply text-4xl text-gray-900 dark:text-gray-300;
 }

@@ -14,24 +14,24 @@
             <p>Passing a variant will change the background color of the link. The available variants are: gray, red, yellow, green, blue, indigo, purple, pink, and link.</p>
             <p>Primary is the default variant.</p>
 
-            <x-a href="#">Primary</x-a>
-            <x-a href="#" variant="gray">Gray</x-a>
-            <x-a href="#" variant="red">Red</x-a>
-            <x-a href="#" variant="yellow">Yellow</x-a>
-            <x-a href="#" variant="green">Green</x-a>
-            <x-a href="#" variant="blue">Blue</x-a>
-            <x-a href="#" variant="indigo">Indigo</x-a>
-            <x-a href="#" variant="purple">Purple</x-a>
-            <x-a href="#" variant="pink">Pink</x-a>
-            <x-a href="#" variant="link">Link Style</x-a>
+            <x-a href="#">Link</x-a>
+            <x-a href="#" size="sm" variant="primary">Primary</x-a>
+            <x-a href="#" size="sm" variant="gray">Gray</x-a>
+            <x-a href="#" size="sm" variant="red">Red</x-a>
+            <x-a href="#" size="sm" variant="yellow">Yellow</x-a>
+            <x-a href="#" size="sm" variant="green">Green</x-a>
+            <x-a href="#" size="sm" variant="blue">Blue</x-a>
+            <x-a href="#" size="sm" variant="indigo">Indigo</x-a>
+            <x-a href="#" size="sm" variant="purple">Purple</x-a>
+            <x-a href="#" size="sm" variant="pink">Pink</x-a>
 
             <div class="mt-4">
                 <p class="mt-5">Sizes:</p>
-                <x-a href="#" size="xs">Extra Small</x-a>
-                <x-a href="#" size="sm">Small</x-a>
-                <x-a href="#">Default</x-a>
-                <x-a href="#" size="lg">Large</x-a>
-                <x-a href="#" size="xl">Extra Large</x-a>
+                <x-a href="#" variant="primary">Default</x-a>
+                <x-a href="#" variant="primary" size="xs">Extra Small</x-a>
+                <x-a href="#" variant="primary" size="sm">Small</x-a>
+                <x-a href="#" variant="primary" size="lg">Large</x-a>
+                <x-a href="#" variant="primary" size="xl">Extra Large</x-a>
             </div>
         </x-tabs.div>
 

@@ -1,7 +1,7 @@
 <x-layouts.app>
-    @section('title', 'Developer Reference')
+@section('title', 'Developer Reference')
 
-    <div class="md:flex">
+<div class="md:flex">
 
     <!-- Sidebar with links (sticky on scroll) -->
     <div class="md:w-1/4 p-5 md:sticky top-0 h-full">

@@ -106,7 +106,7 @@
                                 @if(can('add_users') && !empty($user->invite_token))
                                         <x-modal>
                                             <x-slot name="trigger">
-                                                <a href="#" @click="on = true">{{ __('Resend Invite') }}</a>
+                                                <x-a navigate="off" href="#" @click="on = true">{{ __('Resend Invite') }}</x-a>
                                             </x-slot>
 
                                             @if($sentEmail === false)
@@ -130,7 +130,7 @@
                                     <div x-data="{ confirmation: '' }">
                                     <x-modal>
                                         <x-slot name="trigger">
-                                            <a href="#" @click="on = true">{{ __('Delete') }}</a>
+                                            <x-a navigate="off" href="#" @click="on = true">{{ __('Delete') }}</x-a>
                                         </x-slot>
 
                                         <x-slot name="modalTitle">
