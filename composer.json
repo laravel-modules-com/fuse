@@ -57,7 +57,7 @@
         "pest": "pest",
         "pest-type-coverage": "pest --type-coverage",
         "pest-coverage": "pest --coverage",
-        "test": [
+        "check": [
             "@pint",
             "@stan",
             "@pest-type-coverage",
@@ -69,6 +69,8 @@
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta",
             "@php artisan ide-helper:models --nowrite"
         ],
         "post-root-package-install": [

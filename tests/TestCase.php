@@ -16,8 +16,6 @@ abstract class TestCase extends BaseTestCase
         parent::setUp();
 
         $this->withoutVite();
-
-        // $this->withoutExceptionHandling();
     }
 
     public function authenticate(string $role = 'admin', string $permissionName = ''): self
