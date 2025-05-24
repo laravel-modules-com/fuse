@@ -11,6 +11,7 @@
             <li><a class="text-primary" href="#error">Error</a></li>
             <li><a class="text-primary" href="#forms">Forms</a></li>
             <li><a class="text-primary" href="#alerts">Alerts</a></li>
+            <li><a class="text-primary" href="#links">Links</a></li>
             <li><a class="text-primary" href="#badges">Badges</a></li>
             <li><a class="text-primary" href="#buttons">Buttons</a></li>
             <li><a class="text-primary" href="#dropdown">Dropdown</a></li>
@@ -31,6 +32,7 @@
         @include('admin::docs.error')
         @include('admin::docs.forms')
         @include('admin::docs.alerts')
+        @include('admin::docs.links')
         @include('admin::docs.badges')
         @include('admin::docs.buttons')
         @include('admin::docs.dropdown')
