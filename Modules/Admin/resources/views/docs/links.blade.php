@@ -8,6 +8,12 @@
         </x-tabs.header>
 
         <x-tabs.div name="preview">
+
+            <p>The <code>x-a</code> component is a styled anchor tag that supports the same color variants and sizes as the button component.</p>
+
+            <p>Passing a variant will change the background color of the link. The available variants are: gray, red, yellow, green, blue, indigo, purple, pink, and link.</p>
+            <p>Primary is the default variant.</p>
+
             <x-a href="#">Primary</x-a>
             <x-a href="#" variant="gray">Gray</x-a>
             <x-a href="#" variant="red">Red</x-a>
@@ -20,6 +26,7 @@
             <x-a href="#" variant="link">Link Style</x-a>
 
             <div class="mt-4">
+                <p class="mt-5">Sizes:</p>
                 <x-a href="#" size="xs">Extra Small</x-a>
                 <x-a href="#" size="sm">Small</x-a>
                 <x-a href="#">Default</x-a>
@@ -29,11 +36,6 @@
         </x-tabs.div>
 
         <x-tabs.div name="code">
-            <p>The <code>x-a</code> component is a styled anchor tag that supports the same color variants and sizes as the button component.</p>
-
-            <p>Passing a variant will change the background color of the link. The available variants are: gray, red, yellow, green, blue, indigo, purple, pink, and link.</p>
-            <p>Primary is the default variant.</p>
-
             <pre><code class="language-php">@php echo htmlentities('<x-a href="#">Primary</x-a>
 <x-a href="#" variant="gray">Gray</x-a>
 <x-a href="#" variant="red">Red</x-a>

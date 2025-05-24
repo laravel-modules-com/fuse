@@ -8,6 +8,10 @@
         </x-tabs.header>
 
         <x-tabs.div name="preview">
+
+            <p>Passing a variant will change the background color of the alert. The available variants are: gray, red, yellow, green, blue, indigo, purple, pink.</p>
+            <p>Primary is the default variant.</p>
+
             <x-alert>Primary</x-alert>
             <x-alert variant="gray">Gray</x-alert>
             <x-alert variant="red">Red</x-alert>
@@ -20,10 +24,6 @@
         </x-tabs.div>
 
         <x-tabs.div name="code">
-
-            <p>Passing a variant will change the background color of the alert. The available variants are: gray, red, yellow, green, blue, indigo, purple, pink.</p>
-            <p>Primary is the default variant.</p>
-
             <pre><code class="language-php">@php echo htmlentities('<x-alert>Primary</x-alert>
 <x-alert variant="gray">Gray</x-alert>
 <x-alert variant="red">Red</x-alert>
