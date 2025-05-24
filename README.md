@@ -1,6 +1,6 @@
 ## Fuse (Starter Kit)
 
-Fuse is a Laravel Starter Kit | TALL admin theme built with modules.
+Fuse is a Laravel Modules Starter Kit | TALL admin theme built with Laravel modules.
 
 ![Fuse](https://raw.githubusercontent.com/dcblogdev/laravel-admintw/refs/heads/main/public/images/admintw-light.png)
 ![Fuse](https://raw.githubusercontent.com/dcblogdev/laravel-admintw/refs/heads/main/public/images/admintw-dark.png)
@@ -33,7 +33,7 @@ Set database and emails settings inside `.env`
 4. Run `php artisan db:build`
 5. Run `php artisan serve`
 
-Supports both light and dark modes based on the user's OS.
+Supports both light and dark modes.
 
 Provided are blade and Laravel Livewire components for common layout / UI elements and a complete test suite (Pest PHP).
 
