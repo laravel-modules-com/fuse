@@ -26,7 +26,7 @@
     @if ($label !='none')
         <x-form.label :$label :$required :$name />
     @endif
-    <div class="rounded-md shadow-sm">
+    <div>
         <input
             type="{{ $type }}"
             id="{{ $name }}"
