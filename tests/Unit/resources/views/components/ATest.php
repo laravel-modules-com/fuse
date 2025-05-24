@@ -21,7 +21,7 @@ test('renders without wire:navigate when navigate is false', function () {
 });
 
 test('renders with different variants', function ($variant, $expectedClass) {
-    $rendered = Blade::render('<x-a href="#" variant="' . $variant . '">Link Text</x-a>');
+    $rendered = Blade::render('<x-a href="#" variant="'.$variant.'">Link Text</x-a>');
 
     expect($rendered)
         ->toContain($expectedClass);
@@ -38,7 +38,7 @@ test('renders with different variants', function ($variant, $expectedClass) {
 ]);
 
 test('renders with different sizes', function ($size, $expectedClass) {
-    $rendered = Blade::render('<x-a href="#" size="' . $size . '">Link Text</x-a>');
+    $rendered = Blade::render('<x-a href="#" size="'.$size.'">Link Text</x-a>');
 
     expect($rendered)
         ->toContain($expectedClass);
