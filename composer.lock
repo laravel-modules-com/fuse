@@ -1407,16 +1407,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.13.0",
+            "version": "v12.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "52b588bcd8efc6d01bc1493d2d67848f8065f269"
+                "reference": "2ef7fb183f18e547af4eb9f5a55b2ac1011f0b77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/52b588bcd8efc6d01bc1493d2d67848f8065f269",
-                "reference": "52b588bcd8efc6d01bc1493d2d67848f8065f269",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2ef7fb183f18e547af4eb9f5a55b2ac1011f0b77",
+                "reference": "2ef7fb183f18e547af4eb9f5a55b2ac1011f0b77",
                 "shasum": ""
             },
             "require": {
@@ -1618,7 +1618,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-05-07T17:29:01+00:00"
+            "time": "2025-05-20T15:10:44+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -4093,16 +4093,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "6.17.0",
+            "version": "6.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "02ada8f638b643713fa2fb543384738e27346ddb"
+                "reference": "3c05f04d12275dfbe462c8b4aae3290e586c2dde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/02ada8f638b643713fa2fb543384738e27346ddb",
-                "reference": "02ada8f638b643713fa2fb543384738e27346ddb",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/3c05f04d12275dfbe462c8b4aae3290e586c2dde",
+                "reference": "3c05f04d12275dfbe462c8b4aae3290e586c2dde",
                 "shasum": ""
             },
             "require": {
@@ -4164,7 +4164,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
-                "source": "https://github.com/spatie/laravel-permission/tree/6.17.0"
+                "source": "https://github.com/spatie/laravel-permission/tree/6.18.0"
             },
             "funding": [
                 {
@@ -4172,7 +4172,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-08T15:06:14+00:00"
+            "time": "2025-05-14T03:32:23+00:00"
         },
         {
             "name": "symfony/clock",
@@ -7753,16 +7753,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.42.0",
+            "version": "v1.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "2edaaf77f3c07a4099965bb3d7dfee16e801c0f6"
+                "reference": "71a509b14b2621ce58574274a74290f933c687f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/2edaaf77f3c07a4099965bb3d7dfee16e801c0f6",
-                "reference": "2edaaf77f3c07a4099965bb3d7dfee16e801c0f6",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/71a509b14b2621ce58574274a74290f933c687f7",
+                "reference": "71a509b14b2621ce58574274a74290f933c687f7",
                 "shasum": ""
             },
             "require": {
@@ -7812,7 +7812,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2025-04-29T14:26:46+00:00"
+            "time": "2025-05-13T13:34:34+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -8864,16 +8864,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.14",
+            "version": "2.1.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "8f2e03099cac24ff3b379864d171c5acbfc6b9a2"
+                "reference": "89b5ef665716fa2a52ecd2633f21007a6a349053"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8f2e03099cac24ff3b379864d171c5acbfc6b9a2",
-                "reference": "8f2e03099cac24ff3b379864d171c5acbfc6b9a2",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/89b5ef665716fa2a52ecd2633f21007a6a349053",
+                "reference": "89b5ef665716fa2a52ecd2633f21007a6a349053",
                 "shasum": ""
             },
             "require": {
@@ -8918,7 +8918,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-02T15:32:28+00:00"
+            "time": "2025-05-21T20:55:28+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -9721,23 +9721,23 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "7.2.0",
+            "version": "7.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "855f3ae0ab316bbafe1ba4e16e9f3c078d24a0c5"
+                "reference": "a5c75038693ad2e8d4b6c15ba2403532647830c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/855f3ae0ab316bbafe1ba4e16e9f3c078d24a0c5",
-                "reference": "855f3ae0ab316bbafe1ba4e16e9f3c078d24a0c5",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/a5c75038693ad2e8d4b6c15ba2403532647830c4",
+                "reference": "a5c75038693ad2e8d4b6c15ba2403532647830c4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^11.0"
+                "phpunit/phpunit": "^11.3"
             },
             "suggest": {
                 "ext-posix": "*"
@@ -9773,15 +9773,27 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/environment/issues",
                 "security": "https://github.com/sebastianbergmann/environment/security/policy",
-                "source": "https://github.com/sebastianbergmann/environment/tree/7.2.0"
+                "source": "https://github.com/sebastianbergmann/environment/tree/7.2.1"
             },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
                     "type": "github"
+                },
+                {
+                    "url": "https://liberapay.com/sebastianbergmann",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
+                    "type": "thanks_dev"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/sebastian/environment",
+                    "type": "tidelift"
                 }
             ],
-            "time": "2024-07-03T04:54:44+00:00"
+            "time": "2025-05-21T11:55:47+00:00"
         },
         {
             "name": "sebastian/exporter",
