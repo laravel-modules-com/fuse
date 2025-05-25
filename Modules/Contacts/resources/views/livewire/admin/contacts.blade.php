@@ -3,7 +3,10 @@
 
         <h1>{{ __('Contacts') }}</h1>
 
-        <div>
+        <div class="flex space-x-2">
+            @can('export_contacts')
+                <x-button size="sm" wire:click="exportContacts">{{ __('Export CSV') }}</x-button>
+            @endcan
             @can('add_contacts')
                 <x-a variant="primary" size="sm" href="{{ route('admin.contacts.create') }}">{{ __('Add Contact') }}</x-a>
             @endcan

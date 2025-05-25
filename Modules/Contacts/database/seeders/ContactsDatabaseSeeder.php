@@ -15,6 +15,7 @@ class ContactsDatabaseSeeder extends Seeder
         Permission::firstOrCreate(['name' => 'view_contacts', 'label' => 'View Contacts', 'module' => 'Contacts']);
         Permission::firstOrCreate(['name' => 'add_contacts', 'label' => 'Add Contacts', 'module' => 'Contacts']);
         Permission::firstOrCreate(['name' => 'edit_contacts', 'label' => 'Edit Contacts', 'module' => 'Contacts']);
+        Permission::firstOrCreate(['name' => 'export_contacts', 'label' => 'Export Contacts', 'module' => 'Contacts']);
         Permission::firstOrCreate(['name' => 'delete_contacts', 'label' => 'Delete Contacts', 'module' => 'Contacts']);
     }
 }
