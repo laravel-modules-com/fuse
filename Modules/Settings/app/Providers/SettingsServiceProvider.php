@@ -35,7 +35,8 @@ class SettingsServiceProvider extends ServiceProvider
 
         $navigation->register('navigation.settings', [
             'title' => 'System Settings',
-            'route' => 'admin.settings',
+            'route' => 'admin.system-settings',
+            'active' => 'admin.system-settings',
             'icon' => 'wrench-screwdriver',
             'permission' => 'view_system_settings',
         ], $this->moduleName, sectionPriority: 30, itemPriority: 3);

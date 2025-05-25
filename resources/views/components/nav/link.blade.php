@@ -1,11 +1,12 @@
 @props([
     'route' => '',
+    'active' => '',
     'icon' => '',
     'navEnabled' => true,
 ])
 
 @php
-    $isActive = request()->routeIs($route);
+    $isActive = request()->routeIs($active . '*');
 @endphp
 
 <a @if($navEnabled) wire:navigate @endif
@@ -13,7 +14,7 @@
     class="group flex items-center gap-2 rounded-lg px-2.5 text-sm
     {{ $isActive
         ? 'border border-blue-100 bg-blue-50 text-gray-700 dark:border-none dark:bg-gray-700 dark:text-white'
-        : 'hover:bg-blue-50 dark:hover:bg-gray-500/75 text-gray-700 dark:text-white dark:hover:bg-opacity-100 text-gray-700 dark:text-white'
+        : 'hover:bg-blue-50 dark:hover:bg-gray-500/75 text-gray-700 dark:text-white dark:hover:bg-opacity-100'
     }}">
 
     @if ($icon)

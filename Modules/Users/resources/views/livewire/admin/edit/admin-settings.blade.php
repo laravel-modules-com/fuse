@@ -21,7 +21,7 @@
                                         {{ __('Office Login Only') }}
                                     </span>
                                     <span class="block text-sm text-gray-500 dark:text-gray-200">
-                                        {{ __('When active user can only login at pre-approved IP addresses set in') }} <a href="{{ route('admin.settings') }}">{{ __('System Settings') }}</a>.
+                                        {{ __('When active user can only login at pre-approved IP addresses set in') }} <x-a href="{{ route('admin.system-settings') }}">{{ __('System Settings') }}</x-a>.
                                     </span>
                                 </label>
                             </div>

@@ -36,6 +36,7 @@ class AdminServiceProvider extends ServiceProvider
         $navigation->register('navigation.dashboard', [
             'title' => 'Dashboard',
             'route' => 'dashboard',
+            'active' => 'dashboard',
             'icon' => 'home',
             'permission' => 'view_dashboard',
         ], $this->moduleName, sectionPriority: 10, itemPriority: 0);

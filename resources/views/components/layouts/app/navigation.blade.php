@@ -14,7 +14,7 @@
 
         @foreach($navigationManager->getItems($section) as $item)
             @if(empty($item['permission']) || auth()->user()->can($item['permission']))
-                <x-nav.link route="{{ $item['route'] }}" icon="{{ $item['icon'] }}">
+                <x-nav.link route="{{ $item['route'] }}" active="{{ $item['active'] }}" icon="{{ $item['icon'] }}">
                     {{ __($item['title']) }}
                 </x-nav.link>
             @endif

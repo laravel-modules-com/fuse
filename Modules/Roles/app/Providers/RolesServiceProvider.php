@@ -37,6 +37,7 @@ class RolesServiceProvider extends ServiceProvider
         $navigation->register('navigation.settings', [
             'title' => 'Roles',
             'route' => 'admin.settings.roles.index',
+            'active' => 'admin.settings.roles.*',
             'icon' => 'archive-box',
             'permission' => 'view_roles',
         ], $this->moduleName, sectionPriority: 30, itemPriority: 1);
