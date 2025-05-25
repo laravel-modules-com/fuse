@@ -95,7 +95,6 @@ class Contacts extends Component
         $filename = 'contacts_'.date('Y-m-d_His').'.csv';
         $headers = ['ID', 'Name', 'Email', 'Created At'];
 
-        // Build query with the same filters as the UI
         $query = Contact::query()
             ->when($this->name, function ($query) {
                 return $query->where('name', 'like', '%'.$this->name.'%');
@@ -105,8 +104,10 @@ class Contacts extends Component
             })
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
 
-        // Use the generic ExportToCsvAction
-        return app(ExportToCsvAction::class)(
+        /** @var ExportToCsvAction<Contact> $action */
+        $action = app(ExportToCsvAction::class);
+
+        return $action(
             $filename,
             $headers,
             $query

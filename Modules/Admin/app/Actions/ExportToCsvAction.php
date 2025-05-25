@@ -5,27 +5,26 @@ declare(strict_types=1);
 namespace Modules\Admin\Actions;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ * @template TModel of Model
+ */
 class ExportToCsvAction
 {
     /**
      * Export data to a CSV file.
      *
-     * @param string $filename The name of the CSV file
-     * @param array<string> $headers The CSV headers
-     * @param Builder|Collection|array<array<string, mixed>> $data The data to export
-     * @param int $chunkSize The number of records to process at once (for Builder queries)
-     * @return StreamedResponse
+     * @param  string  $filename  The name of the CSV file
+     * @param  array<string>  $headers  The CSV headers
+     * @param  Builder<TModel>|Collection<int, array<string, mixed>>|array<array<string, mixed>>  $data  The data to export
+     * @param  int  $chunkSize  The number of records to process at once (for Builder queries)
      */
-    public function __invoke(
-        string $filename,
-        array $headers,
-        Builder|Collection|array $data,
-        int $chunkSize = 1000
-    ): StreamedResponse {
-        if (!str_ends_with(strtolower($filename), '.csv')) {
+    public function __invoke(string $filename, array $headers, Builder|Collection|array $data, int $chunkSize = 1000): StreamedResponse
+    {
+        if (! str_ends_with(strtolower($filename), '.csv')) {
             $filename .= '.csv';
         }
 
@@ -33,12 +32,12 @@ class ExportToCsvAction
             // Open output stream
             $handle = fopen('php://output', 'w');
 
-            // Add CSV headers
+            /** @var resource $handle */
             fputcsv($handle, $headers);
 
             // Process data based on its type
             if ($data instanceof Builder) {
-                // Process query in chunks to handle large datasets
+                // Process a query in chunks to handle large datasets
                 $data->chunk($chunkSize, function ($items) use ($handle) {
                     foreach ($items as $item) {
                         fputcsv($handle, $this->extractValues($item));
@@ -52,7 +51,7 @@ class ExportToCsvAction
             } else {
                 // Process array
                 foreach ($data as $item) {
-                    fputcsv($handle, is_array($item) ? array_values($item) : (array) $item);
+                    fputcsv($handle, array_values($item));
                 }
             }
 
@@ -60,14 +59,13 @@ class ExportToCsvAction
             fclose($handle);
         }, $filename, [
             'Content-Type' => 'text/csv',
-            'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+            'Content-Disposition' => 'attachment; filename="'.$filename.'"',
         ]);
     }
 
     /**
      * Extract values from an item for CSV export.
      *
-     * @param mixed $item
      * @return array<mixed>
      */
     private function extractValues(mixed $item): array
@@ -80,6 +78,7 @@ class ExportToCsvAction
             if (method_exists($item, 'toArray')) {
                 return array_values($item->toArray());
             }
+
             return array_values((array) $item);
         }
 
