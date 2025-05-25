@@ -2,6 +2,7 @@
 
 namespace Modules\Users\Providers;
 
+use App\Services\NavigationManager;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,7 +22,24 @@ class UsersServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerNavigation();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'database/migrations'));
+    }
+
+    /**
+     * Register navigation items for this module
+     */
+    protected function registerNavigation(): void
+    {
+        $navigation = app(NavigationManager::class);
+
+        // Register account items
+        $navigation->register('navigation.account.items', [
+            'title' => 'Users',
+            'route' => 'admin.users.index',
+            'icon' => 'users',
+            'permission' => 'view_users',
+        ], $this->moduleName);
     }
 
     /**

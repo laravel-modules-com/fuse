@@ -2,6 +2,7 @@
 
 namespace Modules\Settings\Providers;
 
+use App\Services\NavigationManager;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,7 +22,24 @@ class SettingsServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerNavigation();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'database/migrations'));
+    }
+
+    /**
+     * Register navigation items for this module
+     */
+    protected function registerNavigation(): void
+    {
+        $navigation = app(NavigationManager::class);
+
+        // Register settings items
+        $navigation->register('navigation.settings', [
+            'title' => 'System Settings',
+            'route' => 'admin.settings',
+            'icon' => 'wrench-screwdriver',
+            'permission' => 'view_system_settings',
+        ], $this->moduleName);
     }
 
     /**

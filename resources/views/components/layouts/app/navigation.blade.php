@@ -1,26 +1,23 @@
 
-@can('view_dashboard')
-    <x-nav.link route="dashboard" icon="home">{{ __('Dashboard') }}</x-nav.link>
-@endcan
+@php
+    $navigationManager = app(\App\Services\NavigationManager::class);
+@endphp
 
-@if(can('view_system_settings') || can('view_roles') || can('view_audit_trails'))
-    <x-nav.divider>{{ __('Settings') }}</x-nav.divider>
-@endif
+@foreach($navigationManager->getSections() as $section)
+    @if(strpos($section, 'navigation.') === 0 && $navigationManager->hasItems($section))
+        @php
+            $sectionTitle = str_replace('navigation.', '', $section);
+            $sectionTitle = ucwords(str_replace('.', ' ', $sectionTitle));
+        @endphp
 
-@can('view_audit_trails')
-    <x-nav.link route="admin.settings.audit-trails.index" icon="identification">{{ __('Audit Trails') }}</x-nav.link>
-@endcan
+        <x-nav.divider>{{ __($sectionTitle) }}</x-nav.divider>
 
-@can('view_roles')
-    <x-nav.link route="admin.settings.roles.index" icon="archive-box">{{ __('Roles') }}</x-nav.link>
-@endcan
-
-@can('view_system_settings')
-    <x-nav.link route="admin.settings" icon="wrench-screwdriver">{{ __('System Settings') }}</x-nav.link>
-@endcan
-
-<x-nav.divider>{{ __('Account') }}</x-nav.divider>
-
-@can('view_users')
-    <x-nav.link route="admin.users.index" icon="users">{{ __('Users') }}</x-nav.link>
-@endcan
+        @foreach($navigationManager->getItems($section) as $item)
+            @if(empty($item['permission']) || auth()->user()->can($item['permission']))
+                <x-nav.link route="{{ $item['route'] }}" icon="{{ $item['icon'] }}">
+                    {{ __($item['title']) }}
+                </x-nav.link>
+            @endif
+        @endforeach
+    @endif
+@endforeach

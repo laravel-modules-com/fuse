@@ -21,7 +21,10 @@ use Modules\Settings\Models\Setting;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function register(): void {}
+    public function register(): void
+    {
+        $this->app->register(NavigationServiceProvider::class);
+    }
 
     public function boot(): void
     {

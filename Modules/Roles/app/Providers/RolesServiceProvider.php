@@ -2,6 +2,7 @@
 
 namespace Modules\Roles\Providers;
 
+use App\Services\NavigationManager;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,7 +22,24 @@ class RolesServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerNavigation();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'database/migrations'));
+    }
+
+    /**
+     * Register navigation items for this module
+     */
+    protected function registerNavigation(): void
+    {
+        $navigation = app(NavigationManager::class);
+
+        // Register settings items
+        $navigation->register('navigation.settings', [
+            'title' => 'Roles',
+            'route' => 'admin.settings.roles.index',
+            'icon' => 'archive-box',
+            'permission' => 'view_roles',
+        ], $this->moduleName);
     }
 
     /**

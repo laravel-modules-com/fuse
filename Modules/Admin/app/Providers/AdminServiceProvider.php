@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Providers;
 
+use App\Services\NavigationManager;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,7 +22,23 @@ class AdminServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerNavigation();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'database/migrations'));
+    }
+
+    /**
+     * Register navigation items for this module
+     */
+    protected function registerNavigation(): void
+    {
+        $navigation = app(NavigationManager::class);
+
+        $navigation->register('navigation.dashboard', [
+            'title' => 'Dashboard',
+            'route' => 'dashboard',
+            'icon' => 'home',
+            'permission' => 'view_dashboard',
+        ], $this->moduleName);
     }
 
     /**
