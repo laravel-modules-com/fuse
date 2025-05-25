@@ -5,7 +5,7 @@
 
         <div>
             @can('add_contacts')
-                <x-a variant="primary" size="lg" href="{{ route('admin.contacts.create') }}">{{ __('Add Contact') }}</x-a>
+                <x-a variant="primary" size="sm" href="{{ route('admin.contacts.create') }}">{{ __('Add Contact') }}</x-a>
             @endcan
         </div>
 
