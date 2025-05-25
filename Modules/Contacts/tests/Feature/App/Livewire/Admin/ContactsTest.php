@@ -91,7 +91,6 @@ test('can filter email', function () {
         ->set('email', 'demo@demo.com')
         ->call('contacts')
         ->assertOk()
-        ->assertSet('openFilter', true)
         ->assertSee('demo@demo.com');
 });
 
@@ -100,7 +99,9 @@ test('can reset', function () {
         ->call('resetFilters')
         ->assertSet('name', '')
         ->assertSet('email', '')
-        ->assertSet('openFilter', false);
+        ->assertSet('openFilter', false)
+        ->assertSet('selected', [])
+        ->assertSet('selectAll', false);
 });
 
 test('can delete contact', function () {
@@ -131,4 +132,105 @@ test('can export contacts to csv', function () {
 
     Livewire::test(Contacts::class)->call('exportContacts')
         ->assertOk();
+});
+
+test('can select contacts', function () {
+    // Create test contacts
+    $contact1 = Contact::factory()->create([
+        'name' => 'John Doe',
+        'email' => 'john@example.com',
+    ]);
+
+    $contact2 = Contact::factory()->create([
+        'name' => 'Jane Smith',
+        'email' => 'jane@example.com',
+    ]);
+
+    Livewire::test(Contacts::class)
+        ->set('selected', [$contact1->id])
+        ->assertSet('selected', [$contact1->id]);
+});
+
+test('can select all contacts', function () {
+    // Create test contacts
+    $contact1 = Contact::factory()->create([
+        'name' => 'John Doe',
+        'email' => 'john@example.com',
+    ]);
+
+    $contact2 = Contact::factory()->create([
+        'name' => 'Jane Smith',
+        'email' => 'jane@example.com',
+    ]);
+
+    $component = Livewire::test(Contacts::class);
+
+    // Get the IDs as strings (as they would be in the form)
+    $expectedIds = [$contact1->id, $contact2->id];
+    $expectedIds = array_map('strval', $expectedIds);
+
+    $component->set('selectAll', true)
+        ->assertSet('selectAll', true)
+        ->assertCount('selected', count($expectedIds));
+
+    // Check that all contact IDs are in the selected array
+    foreach ($expectedIds as $id) {
+        $component->assertSet('selected', function ($selected) use ($id) {
+            return in_array($id, $selected);
+        });
+    }
+});
+
+test('can archive contacts with filters', function () {
+
+    // Create test contacts
+    $contact1 = Contact::factory()->create([
+        'name' => 'John Doe',
+        'email' => 'john@example.com',
+    ]);
+
+    $contact2 = Contact::factory()->create([
+        'name' => 'Jane Smith',
+        'email' => 'jane@example.com',
+    ]);
+
+    Livewire::test(Contacts::class)
+        ->set('name', 'John')
+        ->call('archiveContacts');
+
+    // Verify only John Doe is archived
+    $this->assertSoftDeleted('contacts', [
+        'id' => $contact1->id,
+    ]);
+
+    $this->assertDatabaseHas('contacts', [
+        'id' => $contact2->id,
+        'deleted_at' => null,
+    ]);
+});
+
+test('can archive selected contacts', function () {
+
+    $contact1 = Contact::factory()->create([
+        'name' => 'John Doe',
+        'email' => 'john@example.com',
+    ]);
+
+    $contact2 = Contact::factory()->create([
+        'name' => 'Jane Smith',
+        'email' => 'jane@example.com',
+    ]);
+
+    Livewire::test(Contacts::class)
+        ->set('selected', [$contact1->id])
+        ->call('archiveContacts');
+
+    $this->assertSoftDeleted('contacts', [
+        'id' => $contact1->id,
+    ]);
+
+    $this->assertDatabaseHas('contacts', [
+        'id' => $contact2->id,
+        'deleted_at' => null,
+    ]);
 });

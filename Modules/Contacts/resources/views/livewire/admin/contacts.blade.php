@@ -4,9 +4,7 @@
         <h1>{{ __('Contacts') }}</h1>
 
         <div class="flex space-x-2">
-            @can('export_contacts')
-                <x-button size="sm" wire:click="exportContacts">{{ __('Export CSV') }}</x-button>
-            @endcan
+
             @can('add_contacts')
                 <x-a variant="primary" size="sm" href="{{ route('admin.contacts.create') }}">{{ __('Add Contact') }}</x-a>
             @endcan
@@ -23,6 +21,49 @@
             <div class="col-span-2">
                 <x-form.input type="search" name="name" wire:model.live="name" label="none" :placeholder="__('Search Contacts')" />
             </div>
+
+            @if ((@can('delete_contacts') || @can('export_contacts')) && $this->affectedContactsCount() > 0)
+                <x-dropdown label="Actions">
+
+                    @if (@can('delete_contacts') && $this->affectedContactsCount() > 0)
+                        <div x-data="{ archiveConfirmation: '' }">
+                            <x-modal>
+                                <x-slot name="trigger">
+                                    <x-dropdown.link navigate="off" href="#" @click="on = true">
+                                        {{ __('Archive') }} ({{ $this->affectedContactsCount() }})
+                                    </x-dropdown.link>
+                                </x-slot>
+
+                                <x-slot name="modalTitle">
+                                    <div class="pt-5">
+                                        {{ __('Are you sure you want to archive') }} ({{ $this->affectedContactsCount() }}) {{ __('contacts?') }}
+                                    </div>
+                                </x-slot>
+
+                                <x-slot name="content">
+                                    <label class="flex flex-col gap-2">
+                                        <div>{{ __('Type') }} <span class="font-bold">"confirm"</span> {{ __('to proceed') }}</div>
+                                        <input autofocus x-model="archiveConfirmation" class="px-3 py-2 border border-slate-300 rounded-lg">
+                                    </label>
+                                </x-slot>
+
+                                <x-slot name="footer">
+                                    <x-button variant="gray" @click="on = false">{{ __('Cancel') }}</x-button>
+                                    <x-button variant="red" x-bind:disabled="archiveConfirmation !== 'confirm'" wire:click="archiveContacts">{{ __('Archive Contacts') }}</x-button>
+                                </x-slot>
+                            </x-modal>
+                        </div>
+                    @endcan
+
+                    @if (@can('export_contacts') && $this->affectedContactsCount() > 0)
+                        <x-dropdown.link navigate="off" href="#" wire:click="exportContacts">
+                            {{ __('Export to CSV') }} ({{ $this->affectedContactsCount() }})
+                        </x-dropdown.link>
+                    @endcan
+
+                </x-dropdown>
+            @endif
+
 
         </div>
 
@@ -63,6 +104,11 @@
             <table>
             <thead>
             <tr>
+                <th class="w-10">
+                    <input type="checkbox"
+                           wire:model.live="selectAll"
+                           class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+                </th>
                 <th><a href="#" wire:click="sortBy('name')">{{ __('Name') }}</a></th>
                 <th><a href="#" wire:click="sortBy('email')">{{ __('Email') }}</a></th>
                 <th>{{ __('Action') }}</th>
@@ -71,6 +117,12 @@
             <tbody>
             @foreach($this->contacts() as $contact)
                 <tr wire:key="{{ $contact->id }}">
+                    <td>
+                        <input type="checkbox"
+                               wire:model.live="selected"
+                               value="{{ $contact->id }}"
+                               class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+                    </td>
                     <td>{{ $contact->name }}</td>
                     <td>{{ $contact->email }}</td>
                     <td>

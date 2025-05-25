@@ -31,11 +31,27 @@ class Contacts extends Component
 
     public bool $openFilter = false;
 
+    /**
+     * @var array<string>
+     */
+    public array $selected = [];
+
+    public bool $selectAll = false;
+
     public function render(): View
     {
         abort_if_cannot('view_contacts');
 
         return view('contacts::livewire.admin.contacts');
+    }
+
+    public function affectedContactsCount(): int
+    {
+        if (! empty($this->selected)) {
+            return count($this->selected);
+        }
+
+        return $this->contacts()->total();
     }
 
     /**
@@ -56,27 +72,35 @@ class Contacts extends Component
     }
 
     /**
+     * @return Builder<Contact>
+     */
+    public function filteredBuilder(): Builder
+    {
+        return $this->builder()
+            ->when($this->name, fn ($query) => $query->where('name', 'like', '%'.$this->name.'%'))
+            ->when($this->email, fn ($query) => $query->where('email', 'like', '%'.$this->email.'%'));
+    }
+
+    /**
      * @return LengthAwarePaginator<int, Contact>
      */
     public function contacts(): LengthAwarePaginator
     {
-        $query = $this->builder();
-
-        if ($this->name) {
-            $query->where('name', 'like', '%'.$this->name.'%');
-        }
-
-        if ($this->email) {
-            $this->openFilter = true;
-            $query->where('email', 'like', '%'.$this->email.'%');
-        }
-
-        return $query->paginate($this->paginate);
+        return $this->filteredBuilder()->paginate($this->paginate);
     }
 
     public function resetFilters(): void
     {
-        $this->reset();
+        $this->reset(['name', 'email', 'openFilter', 'selected', 'selectAll']);
+    }
+
+    public function updatedSelectAll(): void
+    {
+        if ($this->selectAll) {
+            $this->selected = collect($this->contacts()->items())->pluck('id')->map('strval')->all();
+        } else {
+            $this->selected = [];
+        }
     }
 
     public function deleteContact(string $id): void
@@ -95,14 +119,15 @@ class Contacts extends Component
         $filename = 'contacts_'.date('Y-m-d_His').'.csv';
         $headers = ['ID', 'Name', 'Email', 'Created At'];
 
-        $query = Contact::query()
-            ->when($this->name, function ($query) {
-                return $query->where('name', 'like', '%'.$this->name.'%');
-            })
-            ->when($this->email, function ($query) {
-                return $query->where('email', 'like', '%'.$this->email.'%');
-            })
-            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
+        $query = ! empty($this->selected)
+            ? Contact::query()->whereIn('id', $this->selected)
+            : $this->filteredBuilder();
+
+        add_user_log([
+            'title' => 'Exported contacts',
+            'section' => 'Contacts',
+            'type' => 'Export',
+        ]);
 
         /** @var ExportToCsvAction<Contact> $action */
         $action = app(ExportToCsvAction::class);
@@ -112,5 +137,22 @@ class Contacts extends Component
             $headers,
             $query
         );
+    }
+
+    public function archiveContacts(): void
+    {
+        abort_if_cannot('delete_contacts');
+
+        $query = ! empty($this->selected)
+            ? Contact::query()->whereIn('id', $this->selected)
+            : $this->filteredBuilder();
+
+        add_user_log([
+            'title' => 'Archived contacts',
+            'section' => 'Contacts',
+            'type' => 'Archived',
+        ]);
+
+        $query->delete();
     }
 }
