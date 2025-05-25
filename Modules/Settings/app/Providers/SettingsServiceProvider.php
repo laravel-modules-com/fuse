@@ -33,13 +33,12 @@ class SettingsServiceProvider extends ServiceProvider
     {
         $navigation = app(NavigationManager::class);
 
-        // Register settings items
         $navigation->register('navigation.settings', [
             'title' => 'System Settings',
             'route' => 'admin.settings',
             'icon' => 'wrench-screwdriver',
             'permission' => 'view_system_settings',
-        ], $this->moduleName);
+        ], $this->moduleName, sectionPriority: 30, itemPriority: 3);
     }
 
     /**

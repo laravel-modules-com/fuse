@@ -38,7 +38,7 @@ class AdminServiceProvider extends ServiceProvider
             'route' => 'dashboard',
             'icon' => 'home',
             'permission' => 'view_dashboard',
-        ], $this->moduleName);
+        ], $this->moduleName, sectionPriority: 10, itemPriority: 0);
     }
 
     /**

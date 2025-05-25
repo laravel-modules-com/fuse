@@ -33,13 +33,12 @@ class AuditTrailsServiceProvider extends ServiceProvider
     {
         $navigation = app(NavigationManager::class);
 
-        // Register settings items
         $navigation->register('navigation.settings', [
             'title' => 'Audit Trails',
             'route' => 'admin.settings.audit-trails.index',
             'icon' => 'identification',
             'permission' => 'view_audit_trails',
-        ], $this->moduleName);
+        ], $this->moduleName, sectionPriority: 30, itemPriority: 0);
     }
 
     /**

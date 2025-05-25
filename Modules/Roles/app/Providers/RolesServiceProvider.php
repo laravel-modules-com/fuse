@@ -33,13 +33,13 @@ class RolesServiceProvider extends ServiceProvider
     {
         $navigation = app(NavigationManager::class);
 
-        // Register settings items
+        // Register settings items with priority 30 for section (after account) and 20 for item (second in section)
         $navigation->register('navigation.settings', [
             'title' => 'Roles',
             'route' => 'admin.settings.roles.index',
             'icon' => 'archive-box',
             'permission' => 'view_roles',
-        ], $this->moduleName);
+        ], $this->moduleName, sectionPriority: 30, itemPriority: 1);
     }
 
     /**
