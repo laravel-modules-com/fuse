@@ -119,7 +119,6 @@ test('can delete contact', function () {
 
 test('can export contacts to csv', function () {
 
-    // Create test contacts
     Contact::factory()->create([
         'name' => 'John Doe',
         'email' => 'john@example.com',
@@ -132,9 +131,4 @@ test('can export contacts to csv', function () {
 
     Livewire::test(Contacts::class)->call('exportContacts')
         ->assertOk();
-    // ->assertHeader('Content-Type', 'text/csv')
-    //        ->assertHeader('Content-Disposition', fn ($header) =>
-    //            str_contains($header, 'attachment; filename="contacts_') &&
-    //            str_contains($header, '.csv"')
-    //        );
 });
