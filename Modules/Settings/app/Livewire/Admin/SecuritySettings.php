@@ -80,7 +80,7 @@ class SecuritySettings extends Component
 
         add_user_log([
             'title' => 'updated security settings',
-            'link' => route('admin.settings'),
+            'link' => route('admin.system-settings'),
             'reference_id' => auth()->id(),
             'section' => 'Settings',
             'type' => 'Update',

@@ -1,15 +1,28 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Contacts\Livewire\Admin;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Contacts\Models\Contact;
 
+use function add_user_log;
+use function flash;
+use function redirect;
+use function route;
+use function view;
+
+#[Title('Edit Contact')]
 class EditContact extends Component
 {
+    use AuthorizesRequests;
+
     public Contact $contact;
 
     public string $name = '';
@@ -50,7 +63,7 @@ class EditContact extends Component
         return view('contacts::livewire.admin.edit-contact');
     }
 
-    public function update(): Redirector
+    public function update(): Redirector|RedirectResponse
     {
         $validated = $this->validate();
         $this->contact->update($validated);

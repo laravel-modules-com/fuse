@@ -26,7 +26,7 @@ class NavigationManager
      * Register a navigation item for a specific section
      *
      * @param  string  $section  Section name (e.g., 'navigation.dashboard')
-     * @param  array<string, string>  $item  Navigation item data
+     * @param  array<string, string|null>  $item  Navigation item data
      * @param  string|null  $moduleName  Module name to check if enabled
      * @param  int  $sectionPriority  Priority of the section (lower numbers appear first)
      * @param  int  $itemPriority  Priority of the item within the section (lower numbers appear first)
@@ -43,7 +43,7 @@ class NavigationManager
         }
 
         // Set section priority if not already set or if new priority is lower (higher precedence)
-        if (!isset($this->sectionPriorities[$section]) || $sectionPriority < $this->sectionPriorities[$section]) {
+        if (! isset($this->sectionPriorities[$section]) || $sectionPriority < $this->sectionPriorities[$section]) {
             $this->sectionPriorities[$section] = $sectionPriority;
         }
 
@@ -93,6 +93,7 @@ class NavigationManager
         usort($sections, function ($a, $b) {
             $priorityA = $this->sectionPriorities[$a] ?? 100;
             $priorityB = $this->sectionPriorities[$b] ?? 100;
+
             return $priorityA <=> $priorityB;
         });
 

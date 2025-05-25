@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Contacts\Livewire\Admin;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Contacts\Models\Contact;
-use Illuminate\Contracts\View\View;
 
 use function add_user_log;
 use function flash;
@@ -52,7 +51,7 @@ class CreateContact extends Component
         return view('contacts::livewire.admin.create-contact');
     }
 
-    public function create(): Redirector
+    public function create(): Redirector|RedirectResponse
     {
         $validated = $this->validate();
         $contact = Contact::create($validated);

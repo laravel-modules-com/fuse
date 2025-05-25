@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Contacts\Livewire\Admin;
 
-use Modules\Contacts\Models\Contact;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Modules\Contacts\Models\Contact;
 
 #[Title('Contacts')]
 class Contacts extends Component

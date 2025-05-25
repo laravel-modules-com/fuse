@@ -1,21 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 use League\CommonMark\CommonMarkConverter;
 
 class DocumentationController extends Controller
 {
     /**
      * Display the documentation index page.
-     *
-     * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(): View
     {
         return $this->show('index');
     }
@@ -23,10 +22,9 @@ class DocumentationController extends Controller
     /**
      * Display a documentation page.
      *
-     * @param string $page The page to display
-     * @return \Illuminate\View\View
+     * @param  string  $page  The page to display
      */
-    public function show($page = 'index')
+    public function show(string $page = 'index'): View
     {
         // Sanitize the page parameter to prevent directory traversal
         $page = str_replace(['..', '\\'], '', $page);
@@ -35,7 +33,7 @@ class DocumentationController extends Controller
         $path = resource_path("docs/{$page}.md");
 
         // Check if the file exists
-        if (!File::exists($path)) {
+        if (! File::exists($path)) {
             abort(404);
         }
 
@@ -62,10 +60,9 @@ class DocumentationController extends Controller
     /**
      * Display a module documentation page.
      *
-     * @param string $module The module name
-     * @return \Illuminate\View\View
+     * @param  string  $module  The module name
      */
-    public function module($module)
+    public function module(string $module): View
     {
         return $this->show("modules/{$module}");
     }
@@ -73,11 +70,11 @@ class DocumentationController extends Controller
     /**
      * Get the navigation structure for the documentation.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    protected function getNavigation()
+    protected function getNavigation(): array
     {
-        $navigation = [
+        return [
             'Getting Started' => [
                 'url' => route('documentation.show', 'getting-started'),
                 'active' => request()->is('documentation/getting-started'),
@@ -135,7 +132,5 @@ class DocumentationController extends Controller
                 'active' => request()->is('documentation/contributing'),
             ],
         ];
-
-        return $navigation;
     }
 }

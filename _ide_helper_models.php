@@ -150,6 +150,33 @@ namespace Modules\AuditTrails\Models{
 	class AuditTrail extends \Eloquent {}
 }
 
+namespace Modules\Contacts\Models{
+/**
+ * 
+ *
+ * @property string $id
+ * @property string $name
+ * @property string $email
+ * @property \Carbon\CarbonImmutable|null $created_at
+ * @property \Carbon\CarbonImmutable|null $updated_at
+ * @property \Carbon\CarbonImmutable|null $deleted_at
+ * @method static \Modules\Contacts\Database\Factories\ContactFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact withoutTrashed()
+ */
+	class Contact extends \Eloquent {}
+}
+
 namespace Modules\Roles\Models{
 /**
  * 

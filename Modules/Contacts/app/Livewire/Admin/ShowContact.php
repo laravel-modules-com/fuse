@@ -1,11 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Contacts\Livewire\Admin;
 
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Modules\Contacts\Models\Contact;
 
+use function abort_if_cannot;
+use function view;
+
+#[Title('View Contact')]
 class ShowContact extends Component
 {
     public Contact $contact;

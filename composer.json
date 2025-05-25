@@ -55,9 +55,9 @@
     "scripts": {
         "pint": "pint",
         "stan": "phpstan analyse",
-        "pest": "pest",
-        "pest-type-coverage": "pest --type-coverage",
-        "pest-coverage": "pest --coverage",
+        "pest": "pest --parallel",
+        "pest-type-coverage": "pest --parallel --type-coverage",
+        "pest-coverage": "pest --parallel --coverage",
         "check": [
             "@pint",
             "@stan",

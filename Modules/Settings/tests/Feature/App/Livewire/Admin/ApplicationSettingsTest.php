@@ -6,12 +6,12 @@ use Modules\Settings\Models\Setting;
 
 test('can see settings page', function () {
     $this->authenticate();
-    $this->get(route('admin.settings'))->assertOk();
+    $this->get(route('admin.system-settings'))->assertOk();
 });
 
 test('cannot see system settings without permissions', function () {
     $this->authenticate('user');
-    $this->get(route('admin.settings'))->assertForbidden();
+    $this->get(route('admin.system-settings'))->assertForbidden();
 });
 
 test('can set name', function () {
