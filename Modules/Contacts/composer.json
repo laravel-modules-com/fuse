@@ -1,0 +1,30 @@
+{
+    "name": "laravel-modules-com/contacts",
+    "description": "",
+    "authors": [
+        {
+            "name": "David Carr",
+            "email": "dave@dcblog.dev"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Contacts\\": "app/",
+            "Modules\\Contacts\\Database\\Factories\\": "database/factories/",
+            "Modules\\Contacts\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Contacts\\Tests\\": "tests/"
+        }
+    }
+}
