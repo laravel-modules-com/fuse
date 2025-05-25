@@ -8,6 +8,7 @@
             @can('add_contacts')
                 <x-a variant="primary" size="sm" href="{{ route('admin.contacts.create') }}">{{ __('Add Contact') }}</x-a>
             @endcan
+
         </div>
 
     </div>
@@ -22,21 +23,27 @@
                 <x-form.input type="search" name="name" wire:model.live="name" label="none" :placeholder="__('Search Contacts')" />
             </div>
 
-            @if ((@can('delete_contacts') || @can('export_contacts')) && $this->affectedContactsCount() > 0)
+            @if ((@can('delete_contacts') || @can('export_contacts') || @can('import_contacts')))
                 <x-dropdown label="Actions">
+
+                    @can('import_contacts')
+                    <x-dropdown.link navigate="off" href="{{ route('admin.contacts.import') }}">
+                        {{ __('Import contacts') }}
+                    </x-dropdown.link>
+                    @endcan
 
                     @if (@can('delete_contacts') && $this->affectedContactsCount() > 0)
                         <div x-data="{ archiveConfirmation: '' }">
                             <x-modal>
                                 <x-slot name="trigger">
                                     <x-dropdown.link navigate="off" href="#" @click="on = true">
-                                        {{ __('Archive') }} ({{ $this->affectedContactsCount() }})
+                                        {{ __('Archive') }} {{ $this->affectedContactsCount() }} {{ __('contacts') }}
                                     </x-dropdown.link>
                                 </x-slot>
 
                                 <x-slot name="modalTitle">
                                     <div class="pt-5">
-                                        {{ __('Are you sure you want to archive') }} ({{ $this->affectedContactsCount() }}) {{ __('contacts?') }}
+                                        {{ __('Are you sure you want to archive') }} {{ $this->affectedContactsCount() }} {{ __('contacts?') }}
                                     </div>
                                 </x-slot>
 
@@ -49,7 +56,7 @@
 
                                 <x-slot name="footer">
                                     <x-button variant="gray" @click="on = false">{{ __('Cancel') }}</x-button>
-                                    <x-button variant="red" x-bind:disabled="archiveConfirmation !== 'confirm'" wire:click="archiveContacts">{{ __('Archive Contacts') }}</x-button>
+                                    <x-button variant="red" x-bind:disabled="archiveConfirmation !== 'confirm'" wire:click="archiveContacts">{{ __('Archive contacts') }}</x-button>
                                 </x-slot>
                             </x-modal>
                         </div>
@@ -57,7 +64,7 @@
 
                     @if (@can('export_contacts') && $this->affectedContactsCount() > 0)
                         <x-dropdown.link navigate="off" href="#" wire:click="exportContacts">
-                            {{ __('Export to CSV') }} ({{ $this->affectedContactsCount() }})
+                            {{ __('Export ') }} {{ $this->affectedContactsCount() }} {{ __('contacts to CSV') }}
                         </x-dropdown.link>
                     @endcan
 
