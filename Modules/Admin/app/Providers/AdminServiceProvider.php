@@ -33,7 +33,7 @@ class AdminServiceProvider extends ServiceProvider
     {
         $navigation = app(NavigationManager::class);
 
-        $navigation->register('navigation.dashboard', [
+        $navigation->register('navigation.', [
             'title' => 'Dashboard',
             'route' => 'dashboard',
             'active' => 'dashboard',

@@ -33,7 +33,7 @@ class UsersServiceProvider extends ServiceProvider
     {
         $navigation = app(NavigationManager::class);
 
-        $navigation->register('navigation.account.items', [
+        $navigation->register('navigation.accounts', [
             'title' => 'Users',
             'route' => 'admin.users.index',
             'active' => 'admin.users.*',
