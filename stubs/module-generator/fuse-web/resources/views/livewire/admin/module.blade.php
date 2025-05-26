@@ -150,7 +150,7 @@
                                         <x-slot name="content">
                                             <label class="flex flex-col gap-2">
                                                 <div>{{ __('Type') }} <span class="font-bold">"{{ ${modelCamel}->name }}"</span> {{ __('to confirm') }}</div>
-                                                <input autofocus x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg">
+                                                <input x-model="confirmation" class="px-3 py-2 border border-slate-300 rounded-lg">
                                             </label>
                                         </x-slot>
 
