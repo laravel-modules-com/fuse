@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Contacts\Livewire\Admin;
+namespace Modules\{Module}\Livewire\Admin;
 
 use File;
 use Illuminate\Contracts\View\View;
@@ -12,15 +12,15 @@ use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\Features\SupportRedirects\Redirector;
 use Livewire\WithFileUploads;
-use Modules\Contacts\Jobs\ImportContactsJob;
+use Modules\{Module}\Jobs\Import{Module}Job;
 
 use function add_user_log;
 use function flash;
 use function redirect;
 use function view;
 
-#[Title('Import Contacts')]
-class ImportContacts extends Component
+#[Title('Import {Module }')]
+class Import{Module} extends Component
 {
     use WithFileUploads;
 
@@ -75,9 +75,9 @@ class ImportContacts extends Component
 
     public function render(): View
     {
-        abort_if_cannot('import_contacts');
+        abort_if_cannot('import_{module_}');
 
-        return view('contacts::livewire.admin.import-contacts');
+        return view('{module}::livewire.admin.import-{module-}');
     }
 
     public function updatedCsvFile(): void
@@ -144,17 +144,17 @@ class ImportContacts extends Component
             return is_numeric($value) ? (int) $value : $value;
         }, $this->fieldMapping);
 
-        ImportContactsJob::dispatch($path, $fieldMapping);
+        Import{Module}Job::dispatch($path, $fieldMapping);
 
         add_user_log([
-            'title' => 'Started import of '.$this->totalRows.' contacts',
-            'section' => 'Contacts',
+            'title' => 'Started import of '.$this->totalRows.' {module}',
+            'section' => '{Module }',
             'type' => 'Import',
         ]);
 
-        flash('Contact import started! '.$this->totalRows.' contacts will be processed in the background.')->success();
+        flash('{Model } import started! '.$this->totalRows.' {module } will be processed in the background.')->success();
 
-        return redirect()->route('admin.contacts.index');
+        return redirect()->route('admin.{module-}.index');
     }
 
     public function back(): void

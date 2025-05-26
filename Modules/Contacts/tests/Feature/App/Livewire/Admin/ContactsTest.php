@@ -183,7 +183,6 @@ test('can select all contacts', function () {
 
 test('can archive contacts with filters', function () {
 
-    // Create test contacts
     $contact1 = Contact::factory()->create([
         'name' => 'John Doe',
         'email' => 'john@example.com',
@@ -198,7 +197,6 @@ test('can archive contacts with filters', function () {
         ->set('name', 'John')
         ->call('archiveContacts');
 
-    // Verify only John Doe is archived
     $this->assertSoftDeleted('contacts', [
         'id' => $contact1->id,
     ]);

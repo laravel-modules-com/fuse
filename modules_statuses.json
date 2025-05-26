@@ -4,5 +4,7 @@
     "Roles": true,
     "Settings": true,
     "AuditTrails": true,
-    "Contacts": true
+    "Contacts": true,
+    "Pets": true,
+    "PurchaseOrders": true
 }
