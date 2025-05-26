@@ -20,6 +20,17 @@
       0 => 'BladeUI\\Icons\\BladeIconsServiceProvider',
     ),
   ),
+  'dcblogdev/laravel-module-generator' => 
+  array (
+    'aliases' => 
+    array (
+      'Generator' => 'Dcblogdev\\ModuleGenerator\\Facades\\ModuleGenerator',
+    ),
+    'providers' => 
+    array (
+      0 => 'Dcblogdev\\ModuleGenerator\\ModuleGeneratorServiceProvider',
+    ),
+  ),
   'laracasts/flash' => 
   array (
     'aliases' => 
