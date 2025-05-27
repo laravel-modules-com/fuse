@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3634bd25b313b3479e43498b6c22f7c5",
+    "content-hash": "a048d6ad2056ead97c42e3841aa17330",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -287,16 +287,16 @@
         },
         {
             "name": "dcblogdev/laravel-module-generator",
-            "version": "v2.0.5",
+            "version": "v2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dcblogdev/laravel-module-generator.git",
-                "reference": "2633b342d5a65b35f63deb825bc58e513bef2ee3"
+                "reference": "9cfdd7d765d30ffab533026e48e3edb4c47385b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dcblogdev/laravel-module-generator/zipball/2633b342d5a65b35f63deb825bc58e513bef2ee3",
-                "reference": "2633b342d5a65b35f63deb825bc58e513bef2ee3",
+                "url": "https://api.github.com/repos/dcblogdev/laravel-module-generator/zipball/9cfdd7d765d30ffab533026e48e3edb4c47385b6",
+                "reference": "9cfdd7d765d30ffab533026e48e3edb4c47385b6",
                 "shasum": ""
             },
             "require": {
@@ -341,7 +341,7 @@
             ],
             "support": {
                 "issues": "https://github.com/dcblogdev/laravel-module-generator/issues",
-                "source": "https://github.com/dcblogdev/laravel-module-generator/tree/v2.0.5"
+                "source": "https://github.com/dcblogdev/laravel-module-generator/tree/v2.0.6"
             },
             "funding": [
                 {
@@ -349,7 +349,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-24T23:36:58+00:00"
+            "time": "2025-05-27T07:42:48+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
