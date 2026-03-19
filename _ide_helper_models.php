@@ -13,8 +13,6 @@
 
 namespace App\Models{
 /**
- * 
- *
  * @property string $id
  * @property string $name
  * @property string $slug
@@ -74,7 +72,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFaActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFaSecretKey($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User withoutRole($roles, $guard = null)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User withoutTrashed()
@@ -84,8 +82,6 @@ namespace App\Models{
 
 namespace Modules\Admin\Models{
 /**
- * 
- *
  * @property string $id
  * @property string $title
  * @property string $assigned_to_user_id
@@ -116,8 +112,6 @@ namespace Modules\Admin\Models{
 
 namespace Modules\AuditTrails\Models{
 /**
- * 
- *
  * @property string $id
  * @property string|null $user_id
  * @property string $title
@@ -144,7 +138,7 @@ namespace Modules\AuditTrails\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|AuditTrail whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|AuditTrail whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|AuditTrail whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|AuditTrail withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|AuditTrail withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|AuditTrail withoutTrashed()
  */
 	class AuditTrail extends \Eloquent {}
@@ -152,8 +146,6 @@ namespace Modules\AuditTrails\Models{
 
 namespace Modules\Contacts\Models{
 /**
- * 
- *
  * @property string $id
  * @property string $name
  * @property string $email
@@ -171,7 +163,7 @@ namespace Modules\Contacts\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Contact withoutTrashed()
  */
 	class Contact extends \Eloquent {}
@@ -179,8 +171,6 @@ namespace Modules\Contacts\Models{
 
 namespace Modules\Roles\Models{
 /**
- * 
- *
  * @property string $id
  * @property string $name
  * @property string $label
@@ -214,8 +204,6 @@ namespace Modules\Roles\Models{
 
 namespace Modules\Roles\Models{
 /**
- * 
- *
  * @property string $id
  * @property string $name
  * @property string $label
@@ -243,8 +231,6 @@ namespace Modules\Roles\Models{
 
 namespace Modules\Settings\Models{
 /**
- * 
- *
  * @property string $id
  * @property string $key
  * @property string|null $value
