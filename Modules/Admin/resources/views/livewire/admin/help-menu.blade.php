@@ -23,6 +23,7 @@
             <a href="https://laravelmodules.com/docs" target="_blank" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-600 focus:outline-none">{{ __('Laravel Modules Docs') }}</a>
             <a href="https://github.com/nWidart/laravel-modules" target="_blank" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-600 focus:outline-none">{{ __('Laravel Modules GitHub') }}</a>
             <a href="https://github.com/laravel-modules-com/fuse" target="_blank" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-600 focus:outline-none">{{ __('Fuse GitHub') }}</a>
+            <a href="/documentation" target="_blank" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-600 focus:outline-none">{{ __('Fuse Documentation') }}</a>
             <a href="{{ route('developer-reference') }}" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-gray-200 dark:hover:bg-gray-600 focus:outline-none">{{ __('Developer Reference') }}</a>
         </div>
 

@@ -1,14 +1,17 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @source "./../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views";
 @source "../views";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
-  --color-primary: #3c8dbc;
-  --color-secondary: #F6F6F7;
+    --color-primary: #3c8dbc;
+    --color-secondary: #f6f6f7;
 }
 
 html {
-    scroll-padding-top: theme('spacing.24'); /* example if your header is h-24 */
+    scroll-padding-top: theme(
+        "spacing.24"
+    ); /* example if your header is h-24 */
 }
 
 h1 {
@@ -66,7 +69,7 @@ tbody td a {
 }
 
 .error {
-    @apply text-red-500 dark:text-red-300
+    @apply text-red-500 dark:text-red-300;
 }
 
 .card {
