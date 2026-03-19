@@ -17,6 +17,14 @@ Includes:
 
 ## Installation
 
+Using the Laravel Installer:
+
+```bash
+laravel new fuse --using=laravel-modules-com/fuse
+```
+
+Or install Manually
+
 1. Clone the repository
 
 Copy the `.env.example` file to `.env`:
