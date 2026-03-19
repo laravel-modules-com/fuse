@@ -114,7 +114,7 @@
                 </div>
 
                 <!-- Main Content -->
-                <div class="flex-1">
+                <div class="flex-1 min-w-0">
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
                         <!-- Content Header with Table of Contents -->
                         <div class="border-b border-gray-200 dark:border-gray-700">
@@ -161,7 +161,7 @@
 
                         <!-- Main Content Area -->
                         <div class="p-6 lg:p-8">
-                            <div class="prose dark:prose-invert prose-blue prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-h2:border-b prose-h2:pb-2 prose-h2:border-gray-200 dark:prose-h2:border-gray-700 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-lg prose-img:shadow-md prose-pre:bg-gray-50 dark:prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-gray-700 max-w-none">
+                            <div class="prose dark:prose-invert prose-blue prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-h2:border-b prose-h2:pb-2 prose-h2:border-gray-200 dark:prose-h2:border-gray-700 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-img:rounded-lg prose-img:shadow-md prose-pre:bg-gray-50 dark:prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-gray-700 prose-pre:overflow-x-auto max-w-none overflow-x-auto">
                                 {!! $html !!}
                             </div>
 
