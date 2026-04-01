@@ -91,8 +91,8 @@ namespace Modules\Admin\Models{
  * @property string|null $viewed_at
  * @property \Carbon\CarbonImmutable|null $created_at
  * @property \Carbon\CarbonImmutable|null $updated_at
- * @property-read \App\Models\User $assignedFrom
- * @property-read \App\Models\User $assignedTo
+ * @property-read \App\Models\User|null $assignedFrom
+ * @property-read \App\Models\User|null $assignedTo
  * @method static \Modules\Admin\Database\Factories\NotificationFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Notification newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Notification newQuery()

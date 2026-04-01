@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 12.54.1.
+ * Generated for Laravel 12.55.1.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -15816,6 +15816,18 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
+         * Determine if the current request is asking for Markdown.
+         *
+         * @return bool
+         * @static
+         */
+        public static function wantsMarkdown()
+        {
+            /** @var \Illuminate\Http\Request $instance */
+            return $instance->wantsMarkdown();
+        }
+
+        /**
          * Determines whether the current requests accepts a given content type.
          *
          * @param string|array $contentTypes
@@ -15863,6 +15875,18 @@ namespace Illuminate\Support\Facades {
         {
             /** @var \Illuminate\Http\Request $instance */
             return $instance->acceptsJson();
+        }
+
+        /**
+         * Determines whether a request accepts Markdown.
+         *
+         * @return bool
+         * @static
+         */
+        public static function acceptsMarkdown()
+        {
+            /** @var \Illuminate\Http\Request $instance */
+            return $instance->acceptsMarkdown();
         }
 
         /**
@@ -16677,15 +16701,6 @@ namespace Illuminate\Support\Facades {
         public static function hasValidRelativeSignatureWhileIgnoring($ignoreQuery = [])
         {
             return \Illuminate\Http\Request::hasValidRelativeSignatureWhileIgnoring($ignoreQuery);
-        }
-
-        /**
-         * @see \Inertia\ServiceProvider::registerRequestMacro()
-         * @static
-         */
-        public static function inertia()
-        {
-            return \Illuminate\Http\Request::inertia();
         }
 
             }
@@ -18087,16 +18102,6 @@ namespace Illuminate\Support\Facades {
         {
             /** @var \Illuminate\Routing\Router $instance */
             return $instance->tap($callback);
-        }
-
-        /**
-         * @param array<array-key, mixed> $props
-         * @see \Inertia\ServiceProvider::registerRouterMacro()
-         * @static
-         */
-        public static function inertia($uri, $component, $props = [])
-        {
-            return \Illuminate\Routing\Router::inertia($uri, $component, $props);
         }
 
             }
@@ -24132,7 +24137,7 @@ namespace Nwidart\Modules\Facades {
     /**
      * @method static array getCached()
      */
-    class Module extends \Nwidart\Modules\FileRepository {
+    class Module {
         /**
          * Add other module location.
          *
@@ -24718,34 +24723,10 @@ namespace Illuminate\Http {
             return \Illuminate\Http\Request::hasValidRelativeSignatureWhileIgnoring($ignoreQuery);
         }
 
-        /**
-         * @see \Inertia\ServiceProvider::registerRequestMacro()
-         * @static
-         */
-        public static function inertia()
-        {
-            return \Illuminate\Http\Request::inertia();
-        }
-
             }
     }
 
 namespace Illuminate\Routing {
-    /**
-     * @mixin \Illuminate\Routing\RouteRegistrar
-     */
-    class Router {
-        /**
-         * @param array<array-key, mixed> $props
-         * @see \Inertia\ServiceProvider::registerRouterMacro()
-         * @static
-         */
-        public static function inertia($uri, $component, $props = [])
-        {
-            return \Illuminate\Routing\Router::inertia($uri, $component, $props);
-        }
-
-            }
     /**
      */
     class Route {
@@ -24787,65 +24768,6 @@ namespace Illuminate\Routing {
         public static function roleOrPermission($rolesOrPermissions = [])
         {
             return \Illuminate\Routing\Route::roleOrPermission($rolesOrPermissions);
-        }
-
-            }
-    }
-
-namespace Illuminate\Testing {
-    /**
-     * @template TResponse of \Symfony\Component\HttpFoundation\Response
-     * @mixin \Illuminate\Http\Response
-     */
-    class TestResponse {
-        /**
-         * @see \Inertia\Testing\TestResponseMacros::assertInertia()
-         * @param \Closure|null $callback
-         * @static
-         */
-        public static function assertInertia($callback = null)
-        {
-            return \Illuminate\Testing\TestResponse::assertInertia($callback);
-        }
-
-        /**
-         * @see \Inertia\Testing\TestResponseMacros::inertiaPage()
-         * @static
-         */
-        public static function inertiaPage()
-        {
-            return \Illuminate\Testing\TestResponse::inertiaPage();
-        }
-
-        /**
-         * @see \Inertia\Testing\TestResponseMacros::inertiaProps()
-         * @param string|null $propName
-         * @static
-         */
-        public static function inertiaProps($propName = null)
-        {
-            return \Illuminate\Testing\TestResponse::inertiaProps($propName);
-        }
-
-        /**
-         * @see \Inertia\Testing\TestResponseMacros::assertInertiaFlash()
-         * @param string $key
-         * @param mixed|null $expected
-         * @static
-         */
-        public static function assertInertiaFlash($key, $expected = null)
-        {
-            return \Illuminate\Testing\TestResponse::assertInertiaFlash($key, $expected);
-        }
-
-        /**
-         * @see \Inertia\Testing\TestResponseMacros::assertInertiaFlashMissing()
-         * @param string $key
-         * @static
-         */
-        public static function assertInertiaFlashMissing($key)
-        {
-            return \Illuminate\Testing\TestResponse::assertInertiaFlashMissing($key);
         }
 
             }
@@ -28828,6 +28750,20 @@ namespace  {
         {
             /** @var \Illuminate\Database\Query\Builder $instance */
             return $instance->inRandomOrder($seed);
+        }
+
+        /**
+         * Add an "order by" clause to order results by a given sequence of values.
+         *
+         * @param \Illuminate\Contracts\Database\Query\Expression|string $column
+         * @param \Illuminate\Contracts\Support\Arrayable|array $values
+         * @return \Illuminate\Database\Eloquent\Builder<static>
+         * @static
+         */
+        public static function inOrderOf($column, $values)
+        {
+            /** @var \Illuminate\Database\Query\Builder $instance */
+            return $instance->inOrderOf($column, $values);
         }
 
         /**
