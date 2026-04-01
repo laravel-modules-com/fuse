@@ -6,7 +6,7 @@ use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
+use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Session\TokenMismatchException;
 use Spatie\Permission\Middleware\PermissionMiddleware;
 use Spatie\Permission\Middleware\RoleMiddleware;
@@ -26,7 +26,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->throttleApi();
 
-        $middleware->replaceInGroup('web', ValidateCsrfToken::class, VerifyCsrfToken::class);
+        $middleware->replaceInGroup('web', PreventRequestForgery::class, VerifyCsrfToken::class);
 
         $middleware->alias([
             'ipCheckMiddleware' => IpCheckMiddleware::class,
