@@ -49,7 +49,7 @@
                     wire:ignore.self>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     <x-form.input type="email" id="email" name="email" :label="__('Email')" wire:model.live="email" />
-                    <x-form.daterange id="joined" name="joined" :label="__('Joined Date Range')" wire:model.blur="joined" />
+                    <x-form.daterange id="joined" name="joined" :label="__('Joined Date Range')" wire:model.live.blur="joined" />
                 </div>
             </div>
 

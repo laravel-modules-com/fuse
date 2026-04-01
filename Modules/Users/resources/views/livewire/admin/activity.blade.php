@@ -58,7 +58,7 @@
                         @endforeach
                     </x-form.select>
 
-                    <x-form.daterange id="created_at" name="created_at" :label="__('Created Date Range')" wire:model.blur="created_at" />
+                    <x-form.daterange id="created_at" name="created_at" :label="__('Created Date Range')" wire:model.live.blur="created_at" />
 
                 </div>
             </div>
